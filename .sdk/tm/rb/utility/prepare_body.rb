@@ -1,0 +1,6 @@
+# WeatherData SDK utility: prepare_body
+module WeatherDataUtilities
+  PrepareBody = ->(ctx) {
+    ctx.op.input == "data" ? ctx.utility.transform_request.call(ctx) : nil
+  }
+end

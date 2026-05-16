@@ -1,0 +1,83 @@
+# Entity: weather
+
+main: kit: entity: weather: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "alert"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "core"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "currently"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "daily"
+      req: false
+      type: "`$ARRAY`"
+    }
+    {
+      name: "hourly"
+      req: false
+      type: "`$ARRAY`"
+    }
+  ]
+
+  name: "weather"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: 40.7128
+                kind: "query"
+                name: "lat"
+                orig: "lat"
+                reqd: true
+                type: "`$NUMBER`"
+              }
+              {
+                example: -74.006
+                kind: "query"
+                name: "lon"
+                orig: "lon"
+                reqd: true
+                type: "`$NUMBER`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/weather"
+          parts: [
+            "weather"
+          ]
+          select: {
+            exist: [
+              "lat"
+              "lon"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

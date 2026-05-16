@@ -1,0 +1,67 @@
+<?php
+declare(strict_types=1);
+
+// WeatherData SDK utility registration
+
+require_once __DIR__ . '/../core/UtilityType.php';
+require_once __DIR__ . '/Clean.php';
+require_once __DIR__ . '/Done.php';
+require_once __DIR__ . '/MakeError.php';
+require_once __DIR__ . '/FeatureAdd.php';
+require_once __DIR__ . '/FeatureHook.php';
+require_once __DIR__ . '/FeatureInit.php';
+require_once __DIR__ . '/Fetcher.php';
+require_once __DIR__ . '/MakeFetchDef.php';
+require_once __DIR__ . '/MakeContext.php';
+require_once __DIR__ . '/MakeOptions.php';
+require_once __DIR__ . '/MakeRequest.php';
+require_once __DIR__ . '/MakeResponse.php';
+require_once __DIR__ . '/MakeResult.php';
+require_once __DIR__ . '/MakePoint.php';
+require_once __DIR__ . '/MakeSpec.php';
+require_once __DIR__ . '/MakeUrl.php';
+require_once __DIR__ . '/Param.php';
+require_once __DIR__ . '/PrepareAuth.php';
+require_once __DIR__ . '/PrepareBody.php';
+require_once __DIR__ . '/PrepareHeaders.php';
+require_once __DIR__ . '/PrepareMethod.php';
+require_once __DIR__ . '/PrepareParams.php';
+require_once __DIR__ . '/PreparePath.php';
+require_once __DIR__ . '/PrepareQuery.php';
+require_once __DIR__ . '/ResultBasic.php';
+require_once __DIR__ . '/ResultBody.php';
+require_once __DIR__ . '/ResultHeaders.php';
+require_once __DIR__ . '/TransformRequest.php';
+require_once __DIR__ . '/TransformResponse.php';
+
+WeatherDataUtility::setRegistrar(function (WeatherDataUtility $u): void {
+    $u->clean = [WeatherDataClean::class, 'call'];
+    $u->done = [WeatherDataDone::class, 'call'];
+    $u->make_error = [WeatherDataMakeError::class, 'call'];
+    $u->feature_add = [WeatherDataFeatureAdd::class, 'call'];
+    $u->feature_hook = [WeatherDataFeatureHook::class, 'call'];
+    $u->feature_init = [WeatherDataFeatureInit::class, 'call'];
+    $u->fetcher = [WeatherDataFetcher::class, 'call'];
+    $u->make_fetch_def = [WeatherDataMakeFetchDef::class, 'call'];
+    $u->make_context = [WeatherDataMakeContext::class, 'call'];
+    $u->make_options = [WeatherDataMakeOptions::class, 'call'];
+    $u->make_request = [WeatherDataMakeRequest::class, 'call'];
+    $u->make_response = [WeatherDataMakeResponse::class, 'call'];
+    $u->make_result = [WeatherDataMakeResult::class, 'call'];
+    $u->make_point = [WeatherDataMakePoint::class, 'call'];
+    $u->make_spec = [WeatherDataMakeSpec::class, 'call'];
+    $u->make_url = [WeatherDataMakeUrl::class, 'call'];
+    $u->param = [WeatherDataParam::class, 'call'];
+    $u->prepare_auth = [WeatherDataPrepareAuth::class, 'call'];
+    $u->prepare_body = [WeatherDataPrepareBody::class, 'call'];
+    $u->prepare_headers = [WeatherDataPrepareHeaders::class, 'call'];
+    $u->prepare_method = [WeatherDataPrepareMethod::class, 'call'];
+    $u->prepare_params = [WeatherDataPrepareParams::class, 'call'];
+    $u->prepare_path = [WeatherDataPreparePath::class, 'call'];
+    $u->prepare_query = [WeatherDataPrepareQuery::class, 'call'];
+    $u->result_basic = [WeatherDataResultBasic::class, 'call'];
+    $u->result_body = [WeatherDataResultBody::class, 'call'];
+    $u->result_headers = [WeatherDataResultHeaders::class, 'call'];
+    $u->transform_request = [WeatherDataTransformRequest::class, 'call'];
+    $u->transform_response = [WeatherDataTransformResponse::class, 'call'];
+});

@@ -1,0 +1,20 @@
+# Guide
+
+guide: {
+  metrics: count: entity: 2
+  metrics: count: path: 2
+  metrics: count: method: 2
+
+  entity: history: {
+    path: "/history": {
+      op: list: method: *GET
+    }
+  }
+
+  entity: weather: {
+    path: "/weather": {
+      op: list: method: *GET
+    }
+  }
+
+}

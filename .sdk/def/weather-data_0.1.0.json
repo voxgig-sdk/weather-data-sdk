@@ -1,0 +1,695 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Weather Data API",
+    "description": "WeatherXu provides comprehensive weather data through a simple JSON-based REST API. Users can access current conditions, hourly forecasts, and 10-day predictions for any location worldwide, ensuring reliability and accuracy.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "WeatherXu Support",
+      "url": "https://weatherxu.com/contact"
+    },
+    "termsOfService": "https://weatherxu.com/terms-conditions"
+  },
+  "servers": [
+    {
+      "url": "https://api.weatherxu.com/v1",
+      "description": "Production server for current and forecast weather data"
+    },
+    {
+      "url": "https://historical.weatherxu.com/v1",
+      "description": "Production server for historical weather data"
+    }
+  ],
+  "security": [
+    {
+      "ApiKeyAuth": []
+    }
+  ],
+  "paths": {
+    "/weather": {
+      "get": {
+        "summary": "Get Current Weather and Forecasts",
+        "description": "Retrieve current weather conditions, 48-hour forecasts, and 10-day predictions for any location worldwide using latitude and longitude coordinates.",
+        "operationId": "getCurrentWeather",
+        "tags": [
+          "Weather"
+        ],
+        "parameters": [
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "Latitude coordinate of the location",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": -90,
+              "maximum": 90
+            },
+            "example": 40.7128
+          },
+          {
+            "name": "lon",
+            "in": "query",
+            "description": "Longitude coordinate of the location",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": -180,
+              "maximum": 180
+            },
+            "example": -74.006
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with weather data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/WeatherResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests - Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    },
+    "/history": {
+      "get": {
+        "summary": "Get Historical Weather Data",
+        "description": "Retrieve historical weather data for a specific location and time period using latitude, longitude coordinates, and Unix timestamps.",
+        "operationId": "getHistoricalWeather",
+        "tags": [
+          "Historical Weather"
+        ],
+        "servers": [
+          {
+            "url": "https://historical.weatherxu.com/v1"
+          }
+        ],
+        "parameters": [
+          {
+            "name": "lat",
+            "in": "query",
+            "description": "Latitude coordinate of the location",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": -90,
+              "maximum": 90
+            },
+            "example": 40.7128
+          },
+          {
+            "name": "lon",
+            "in": "query",
+            "description": "Longitude coordinate of the location",
+            "required": true,
+            "schema": {
+              "type": "number",
+              "format": "double",
+              "minimum": -180,
+              "maximum": 180
+            },
+            "example": -74.006
+          },
+          {
+            "name": "start",
+            "in": "query",
+            "description": "Start time in Unix timestamp (seconds since epoch)",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "example": 1704880800
+          },
+          {
+            "name": "end",
+            "in": "query",
+            "description": "End time in Unix timestamp (seconds since epoch)",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int64"
+            },
+            "example": 1704970800
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with historical weather data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HistoricalWeatherResponse"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Invalid or missing API key",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "429": {
+            "description": "Too many requests - Rate limit exceeded",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "ApiKeyAuth": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "ApiKeyAuth": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "X-API-KEY",
+        "description": "API key for authentication. Sign up at https://weatherxu.com to get your API key."
+      }
+    },
+    "schemas": {
+      "WeatherResponse": {
+        "type": "object",
+        "description": "Complete weather response including current conditions, hourly forecasts, and daily predictions",
+        "properties": {
+          "core": {
+            "type": "object",
+            "description": "Core location and metadata information",
+            "properties": {
+              "lat": {
+                "type": "number",
+                "format": "double",
+                "description": "Latitude of the location"
+              },
+              "lon": {
+                "type": "number",
+                "format": "double",
+                "description": "Longitude of the location"
+              },
+              "timezone": {
+                "type": "string",
+                "description": "Timezone identifier"
+              },
+              "timezone_offset": {
+                "type": "integer",
+                "description": "Timezone offset in seconds from UTC"
+              }
+            }
+          },
+          "alerts": {
+            "type": "array",
+            "description": "Weather alerts and warnings for the location",
+            "items": {
+              "$ref": "#/components/schemas/Alert"
+            }
+          },
+          "currently": {
+            "$ref": "#/components/schemas/CurrentWeather"
+          },
+          "hourly": {
+            "type": "array",
+            "description": "48-hour hourly weather forecast",
+            "items": {
+              "$ref": "#/components/schemas/HourlyWeather"
+            }
+          },
+          "daily": {
+            "type": "array",
+            "description": "10-day daily weather forecast",
+            "items": {
+              "$ref": "#/components/schemas/DailyWeather"
+            }
+          }
+        }
+      },
+      "HistoricalWeatherResponse": {
+        "type": "object",
+        "description": "Historical weather data response",
+        "properties": {
+          "core": {
+            "type": "object",
+            "description": "Core location and metadata information",
+            "properties": {
+              "lat": {
+                "type": "number",
+                "format": "double",
+                "description": "Latitude of the location"
+              },
+              "lon": {
+                "type": "number",
+                "format": "double",
+                "description": "Longitude of the location"
+              },
+              "timezone": {
+                "type": "string",
+                "description": "Timezone identifier"
+              },
+              "timezone_offset": {
+                "type": "integer",
+                "description": "Timezone offset in seconds from UTC"
+              }
+            }
+          },
+          "alerts": {
+            "type": "array",
+            "description": "Historical weather alerts for the time period",
+            "items": {
+              "$ref": "#/components/schemas/Alert"
+            }
+          },
+          "currently": {
+            "$ref": "#/components/schemas/CurrentWeather"
+          },
+          "hourly": {
+            "type": "array",
+            "description": "Historical hourly weather data",
+            "items": {
+              "$ref": "#/components/schemas/HourlyWeather"
+            }
+          },
+          "daily": {
+            "type": "array",
+            "description": "Historical daily weather data",
+            "items": {
+              "$ref": "#/components/schemas/DailyWeather"
+            }
+          }
+        }
+      },
+      "CurrentWeather": {
+        "type": "object",
+        "description": "Current weather conditions",
+        "properties": {
+          "time": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Unix timestamp of the current observation"
+          },
+          "temperature": {
+            "type": "number",
+            "format": "double",
+            "description": "Current temperature"
+          },
+          "feels_like": {
+            "type": "number",
+            "format": "double",
+            "description": "Apparent temperature"
+          },
+          "humidity": {
+            "type": "number",
+            "format": "double",
+            "description": "Relative humidity percentage"
+          },
+          "pressure": {
+            "type": "number",
+            "format": "double",
+            "description": "Atmospheric pressure"
+          },
+          "wind_speed": {
+            "type": "number",
+            "format": "double",
+            "description": "Wind speed"
+          },
+          "wind_direction": {
+            "type": "number",
+            "format": "double",
+            "description": "Wind direction in degrees"
+          },
+          "clouds": {
+            "type": "number",
+            "format": "double",
+            "description": "Cloud coverage percentage"
+          },
+          "visibility": {
+            "type": "number",
+            "format": "double",
+            "description": "Visibility distance"
+          },
+          "uv_index": {
+            "type": "number",
+            "format": "double",
+            "description": "UV index"
+          },
+          "description": {
+            "type": "string",
+            "description": "Weather condition description"
+          },
+          "icon": {
+            "type": "string",
+            "description": "Weather icon identifier"
+          }
+        }
+      },
+      "HourlyWeather": {
+        "type": "object",
+        "description": "Hourly weather forecast data",
+        "properties": {
+          "time": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Unix timestamp for the forecast hour"
+          },
+          "temperature": {
+            "type": "number",
+            "format": "double",
+            "description": "Forecasted temperature"
+          },
+          "feels_like": {
+            "type": "number",
+            "format": "double",
+            "description": "Forecasted apparent temperature"
+          },
+          "humidity": {
+            "type": "number",
+            "format": "double",
+            "description": "Forecasted humidity percentage"
+          },
+          "pressure": {
+            "type": "number",
+            "format": "double",
+            "description": "Forecasted atmospheric pressure"
+          },
+          "wind_speed": {
+            "type": "number",
+            "format": "double",
+            "description": "Forecasted wind speed"
+          },
+          "wind_direction": {
+            "type": "number",
+            "format": "double",
+            "description": "Forecasted wind direction in degrees"
+          },
+          "clouds": {
+            "type": "number",
+            "format": "double",
+            "description": "Forecasted cloud coverage percentage"
+          },
+          "pop": {
+            "type": "number",
+            "format": "double",
+            "description": "Probability of precipitation"
+          },
+          "precipitation": {
+            "type": "number",
+            "format": "double",
+            "description": "Precipitation amount"
+          },
+          "description": {
+            "type": "string",
+            "description": "Weather condition description"
+          },
+          "icon": {
+            "type": "string",
+            "description": "Weather icon identifier"
+          }
+        }
+      },
+      "DailyWeather": {
+        "type": "object",
+        "description": "Daily weather forecast data",
+        "properties": {
+          "time": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Unix timestamp for the forecast day"
+          },
+          "temperature": {
+            "type": "object",
+            "properties": {
+              "min": {
+                "type": "number",
+                "format": "double",
+                "description": "Minimum temperature for the day"
+              },
+              "max": {
+                "type": "number",
+                "format": "double",
+                "description": "Maximum temperature for the day"
+              },
+              "morning": {
+                "type": "number",
+                "format": "double",
+                "description": "Morning temperature"
+              },
+              "day": {
+                "type": "number",
+                "format": "double",
+                "description": "Day temperature"
+              },
+              "evening": {
+                "type": "number",
+                "format": "double",
+                "description": "Evening temperature"
+              },
+              "night": {
+                "type": "number",
+                "format": "double",
+                "description": "Night temperature"
+              }
+            }
+          },
+          "feels_like": {
+            "type": "object",
+            "properties": {
+              "morning": {
+                "type": "number",
+                "format": "double",
+                "description": "Morning apparent temperature"
+              },
+              "day": {
+                "type": "number",
+                "format": "double",
+                "description": "Day apparent temperature"
+              },
+              "evening": {
+                "type": "number",
+                "format": "double",
+                "description": "Evening apparent temperature"
+              },
+              "night": {
+                "type": "number",
+                "format": "double",
+                "description": "Night apparent temperature"
+              }
+            }
+          },
+          "humidity": {
+            "type": "number",
+            "format": "double",
+            "description": "Average humidity percentage"
+          },
+          "pressure": {
+            "type": "number",
+            "format": "double",
+            "description": "Atmospheric pressure"
+          },
+          "wind_speed": {
+            "type": "number",
+            "format": "double",
+            "description": "Wind speed"
+          },
+          "wind_direction": {
+            "type": "number",
+            "format": "double",
+            "description": "Wind direction in degrees"
+          },
+          "clouds": {
+            "type": "number",
+            "format": "double",
+            "description": "Cloud coverage percentage"
+          },
+          "pop": {
+            "type": "number",
+            "format": "double",
+            "description": "Probability of precipitation"
+          },
+          "precipitation": {
+            "type": "number",
+            "format": "double",
+            "description": "Precipitation amount"
+          },
+          "uv_index": {
+            "type": "number",
+            "format": "double",
+            "description": "UV index"
+          },
+          "sunrise": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Sunrise time in Unix timestamp"
+          },
+          "sunset": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Sunset time in Unix timestamp"
+          },
+          "description": {
+            "type": "string",
+            "description": "Weather condition description"
+          },
+          "icon": {
+            "type": "string",
+            "description": "Weather icon identifier"
+          }
+        }
+      },
+      "Alert": {
+        "type": "object",
+        "description": "Weather alert or warning information",
+        "properties": {
+          "sender_name": {
+            "type": "string",
+            "description": "Name of the alerting agency"
+          },
+          "event": {
+            "type": "string",
+            "description": "Alert event type"
+          },
+          "start": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Alert start time in Unix timestamp"
+          },
+          "end": {
+            "type": "integer",
+            "format": "int64",
+            "description": "Alert end time in Unix timestamp"
+          },
+          "description": {
+            "type": "string",
+            "description": "Detailed description of the alert"
+          },
+          "severity": {
+            "type": "string",
+            "description": "Alert severity level",
+            "enum": [
+              "minor",
+              "moderate",
+              "severe",
+              "extreme"
+            ]
+          }
+        }
+      },
+      "ErrorResponse": {
+        "type": "object",
+        "description": "Error response object",
+        "properties": {
+          "error": {
+            "type": "object",
+            "properties": {
+              "code": {
+                "type": "string",
+                "description": "Error code"
+              },
+              "message": {
+                "type": "string",
+                "description": "Human-readable error message"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Weather",
+      "description": "Current weather conditions and forecasts"
+    },
+    {
+      "name": "Historical Weather",
+      "description": "Historical weather data access"
+    }
+  ],
+  "externalDocs": {
+    "description": "Complete API Documentation",
+    "url": "https://weatherxu.com/documentation"
+  }
+}

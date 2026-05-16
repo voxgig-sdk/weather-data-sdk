@@ -1,0 +1,29 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "WeatherXu Support"
+        url: "https://weatherxu.com/contact"
+      }
+      description: "WeatherXu provides comprehensive weather data through a simple JSON-based REST API. Users can access current conditions, hourly forecasts, and 10-day predictions for any location worldwide, ensuring reliability and accuracy."
+      servers: [
+        {
+          description: "Production server for current and forecast weather data"
+          url: "https://api.weatherxu.com/v1"
+        }
+        {
+          description: "Production server for historical weather data"
+          url: "https://historical.weatherxu.com/v1"
+        }
+      ]
+      termsOfService: "https://weatherxu.com/terms-conditions"
+      title: "Weather Data API"
+      version: "1.0.0"
+    }
+  }
+}
+
+}

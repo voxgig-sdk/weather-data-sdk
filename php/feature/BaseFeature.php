@@ -1,0 +1,37 @@
+<?php
+declare(strict_types=1);
+
+// WeatherData SDK base feature
+
+class WeatherDataBaseFeature
+{
+    public string $version;
+    public string $name;
+    public bool $active;
+
+    public function __construct()
+    {
+        $this->version = '0.0.1';
+        $this->name = 'base';
+        $this->active = true;
+    }
+
+    public function get_version(): string { return $this->version; }
+    public function get_name(): string { return $this->name; }
+    public function get_active(): bool { return $this->active; }
+
+    public function init(WeatherDataContext $ctx, array $options): void {}
+    public function PostConstruct(WeatherDataContext $ctx): void {}
+    public function PostConstructEntity(WeatherDataContext $ctx): void {}
+    public function SetData(WeatherDataContext $ctx): void {}
+    public function GetData(WeatherDataContext $ctx): void {}
+    public function GetMatch(WeatherDataContext $ctx): void {}
+    public function SetMatch(WeatherDataContext $ctx): void {}
+    public function PrePoint(WeatherDataContext $ctx): void {}
+    public function PreSpec(WeatherDataContext $ctx): void {}
+    public function PreRequest(WeatherDataContext $ctx): void {}
+    public function PreResponse(WeatherDataContext $ctx): void {}
+    public function PreResult(WeatherDataContext $ctx): void {}
+    public function PreDone(WeatherDataContext $ctx): void {}
+    public function PreUnexpected(WeatherDataContext $ctx): void {}
+}

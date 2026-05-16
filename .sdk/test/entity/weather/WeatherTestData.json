@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "weather": {
+      "WEATHER00": {
+        "alert": [],
+        "core": {},
+        "currently": {},
+        "daily": [],
+        "hourly": []
+      },
+      "WEATHER01": {
+        "alert": [],
+        "core": {},
+        "currently": {},
+        "daily": [],
+        "hourly": []
+      },
+      "WEATHER02": {
+        "alert": [],
+        "core": {},
+        "currently": {},
+        "daily": [],
+        "hourly": []
+      }
+    }
+  },
+  "new": {
+    "weather": {
+      "weather_ref01": {
+        "alert": [],
+        "core": {},
+        "currently": {},
+        "daily": [],
+        "hourly": []
+      }
+    }
+  }
+}

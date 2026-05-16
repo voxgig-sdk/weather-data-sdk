@@ -1,0 +1,38 @@
+{
+  "existing": {
+    "history": {
+      "HISTORY00": {
+        "alert": [],
+        "core": {},
+        "currently": {},
+        "daily": [],
+        "hourly": []
+      },
+      "HISTORY01": {
+        "alert": [],
+        "core": {},
+        "currently": {},
+        "daily": [],
+        "hourly": []
+      },
+      "HISTORY02": {
+        "alert": [],
+        "core": {},
+        "currently": {},
+        "daily": [],
+        "hourly": []
+      }
+    }
+  },
+  "new": {
+    "history": {
+      "history_ref01": {
+        "alert": [],
+        "core": {},
+        "currently": {},
+        "daily": [],
+        "hourly": []
+      }
+    }
+  }
+}
