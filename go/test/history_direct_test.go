@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/weather-data-sdk"
-	"github.com/voxgig-sdk/weather-data-sdk/core"
+	sdk "github.com/voxgig-sdk/weather-data-sdk/go"
+	"github.com/voxgig-sdk/weather-data-sdk/go/core"
 )
 
 func TestHistoryDirect(t *testing.T) {

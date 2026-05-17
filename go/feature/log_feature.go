@@ -4,7 +4,7 @@ import (
 	"log/slog"
 	"os"
 
-	"github.com/voxgig-sdk/weather-data-sdk/core"
+	"github.com/voxgig-sdk/weather-data-sdk/go/core"
 )
 
 type LogFeature struct {

@@ -1,6 +1,6 @@
 package utility
 
-import "github.com/voxgig-sdk/weather-data-sdk/core"
+import "github.com/voxgig-sdk/weather-data-sdk/go/core"
 
 func init() {
 	core.UtilityRegistrar = registerAll
