@@ -22,7 +22,18 @@
         ],
         "termsOfService": "https://weatherxu.com/terms-conditions",
         "title": "Weather Data API",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Global current, hourly, daily, and historical weather data via a simple JSON REST API",
+        "homepage": "https://weatherxu.com",
+        "docs_url": "https://weatherxu.com/documentation",
+        "license_short": "Proprietary commercial service; usage governed by WeatherXu Terms of Service.",
+        "license_md": "- Commercial API operated by WeatherXu; see the [Terms](https://weatherxu.com/terms) and [Privacy Policy](https://weatherxu.com/privacy).\n- Free and paid plans are offered, distinguished by rate limits.\n- Requires an API key (`X-API-KEY` header) issued by WeatherXu.\n- Note: community trackers have flagged availability issues in the past; verify uptime before relying on it in production.",
+        "about_md": "[WeatherXu](https://weatherxu.com) is a commercial weather data service that exposes global forecast and historical observations through a JSON-based REST API hosted at `https://api.weatherxu.com/v1`.\n\nWhat you get from the API:\n\n- Current conditions for a `lat`/`lon` point\n- Hourly forecast (up to 48 hours)\n- Daily forecast (up to 10 days)\n- Weather alerts\n- Historical weather lookups by Unix timestamp range (`start`, `end`)\n\nRequests are authenticated with an API key passed as the `X-API-KEY` header. Per WeatherXu's documentation, the free plan permits roughly 10 requests per second while paid plans go up to about 500 requests per second. Units and field-level details are described under the documentation's `/documentation/units` section.",
+        "entity_desc": {
+          "history": "Historical weather observations for a coordinate over a Unix-timestamp range, served from `https://historical.weatherxu.com/v1/history` with `lat`, `lon`, `start`, and `end` parameters.",
+          "weather": "Current conditions plus hourly (48h) and daily (10d) forecasts and alerts for a coordinate, served from `/v1/weather` with `lat` and `lon` parameters."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -30,7 +41,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "history": {

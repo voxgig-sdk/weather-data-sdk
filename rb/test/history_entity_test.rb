@@ -83,7 +83,6 @@ def history_basic_setup(extra)
     "WEATHERDATA_TEST_HISTORY_ENTID" => idmap,
     "WEATHERDATA_TEST_LIVE" => "FALSE",
     "WEATHERDATA_TEST_EXPLAIN" => "FALSE",
-    "WEATHERDATA_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +94,6 @@ def history_basic_setup(extra)
   if env["WEATHERDATA_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["WEATHERDATA_APIKEY"],
       },
       extra || {},
     ])
