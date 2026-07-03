@@ -10,7 +10,7 @@ The Python SDK for the WeatherData API — an entity-oriented client following P
 
 ## Install
 ```bash
-pip install weather-data-sdk
+pip install voxgig-sdk-weather-data
 ```
 
 Or install from source:

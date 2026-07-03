@@ -10,13 +10,13 @@ The Ruby SDK for the WeatherData API — an entity-oriented client using idiomat
 
 ## Install
 ```bash
-gem install weather-data-sdk
+gem install voxgig-sdk-weather-data
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "weather-data-sdk"
+gem "voxgig-sdk-weather-data"
 ```
 
 Then run:
