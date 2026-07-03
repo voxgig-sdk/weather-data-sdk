@@ -63,12 +63,14 @@ function history_direct_setup(mockres)
   local env = runner.env_override({
     ["WEATHERDATA_TEST_HISTORY_ENTID"] = {},
     ["WEATHERDATA_TEST_LIVE"] = "FALSE",
+    ["WEATHERDATA_APIKEY"] = "NONE",
   })
 
   local live = env["WEATHERDATA_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["WEATHERDATA_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

@@ -1,22 +1,8 @@
 # WeatherData SDK
 
-Global current, hourly, daily, and historical weather data via a simple JSON REST API
+Weather Data API client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Weather Data API
-
-[WeatherXu](https://weatherxu.com) is a commercial weather data service that exposes global forecast and historical observations through a JSON-based REST API hosted at `https://api.weatherxu.com/v1`.
-
-What you get from the API:
-
-- Current conditions for a `lat`/`lon` point
-- Hourly forecast (up to 48 hours)
-- Daily forecast (up to 10 days)
-- Weather alerts
-- Historical weather lookups by Unix timestamp range (`start`, `end`)
-
-Requests are authenticated with an API key passed as the `X-API-KEY` header. Per WeatherXu's documentation, the free plan permits roughly 10 requests per second while paid plans go up to about 500 requests per second. Units and field-level details are described under the documentation's `/documentation/units` section.
 
 ## Try it
 
@@ -50,29 +36,31 @@ gem install weather-data-sdk
 luarocks install weather-data-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { WeatherDataSDK } from 'weather-data'
 
-const client = new WeatherDataSDK({})
+const client = new WeatherDataSDK({
+  apikey: process.env.WEATHER-DATA_APIKEY,
+})
 
 // List all historys
 const historys = await client.History().list()
+console.log(historys.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -102,8 +90,8 @@ The API exposes 2 entities:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **History** | Historical weather observations for a coordinate over a Unix-timestamp range, served from `https://historical.weatherxu.com/v1/history` with `lat`, `lon`, `start`, and `end` parameters. | `/history` |
-| **Weather** | Current conditions plus hourly (48h) and daily (10d) forecasts and alerts for a coordinate, served from `/v1/weather` with `lat` and `lon` parameters. | `/weather` |
+| **History** |  | `/history` |
+| **Weather** |  | `/weather` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -113,12 +101,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from weatherdata_sdk import WeatherDataSDK
 
-client = WeatherDataSDK({})
+client = WeatherDataSDK({
+    "apikey": os.environ.get("WEATHER-DATA_APIKEY"),
+})
 
 # List all historys
-historys, err = client.History(None).list(None, None)
+historys, err = client.History().list()
+print(historys)
 ```
 
 ### PHP
@@ -127,10 +119,13 @@ historys, err = client.History(None).list(None, None)
 <?php
 require_once 'weatherdata_sdk.php';
 
-$client = new WeatherDataSDK([]);
+$client = new WeatherDataSDK([
+    "apikey" => getenv("WEATHER-DATA_APIKEY"),
+]);
 
 // List all historys
-[$historys, $err] = $client->History(null)->list(null, null);
+[$historys, $err] = $client->History()->list();
+print_r($historys);
 ```
 
 ### Golang
@@ -138,10 +133,13 @@ $client = new WeatherDataSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/weather-data-sdk/go"
 
-client := sdk.NewWeatherDataSDK(map[string]any{})
+client := sdk.NewWeatherDataSDK(map[string]any{
+    "apikey": os.Getenv("WEATHER-DATA_APIKEY"),
+})
 
 // List all historys
 historys, err := client.History(nil).List(nil, nil)
+fmt.Println(historys)
 ```
 
 ### Ruby
@@ -149,10 +147,13 @@ historys, err := client.History(nil).List(nil, nil)
 ```ruby
 require_relative "WeatherData_sdk"
 
-client = WeatherDataSDK.new({})
+client = WeatherDataSDK.new({
+  "apikey" => ENV["WEATHER-DATA_APIKEY"],
+})
 
 # List all historys
-historys, err = client.History(nil).list(nil, nil)
+historys, err = client.History().list
+puts historys
 ```
 
 ### Lua
@@ -160,10 +161,13 @@ historys, err = client.History(nil).list(nil, nil)
 ```lua
 local sdk = require("weather-data_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("WEATHER-DATA_APIKEY"),
+})
 
 -- List all historys
-local historys, err = client:History(nil):list(nil, nil)
+local historys, err = client:History():list()
+print(historys)
 ```
 
 ## Unit testing in offline mode
@@ -182,25 +186,21 @@ const result = await client.History().load({ id: 'test01' })
 ### Python
 
 ```python
-client = WeatherDataSDK.test(None, None)
-result, err = client.History(None).load(
-    {"id": "test01"}, None
-)
+client = WeatherDataSDK.test()
+result, err = client.History().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = WeatherDataSDK::test(null, null);
-[$result, $err] = $client->History(null)->load(
-    ["id" => "test01"], null
-);
+$client = WeatherDataSDK::test();
+[$result, $err] = $client->History()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.History(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -209,19 +209,15 @@ result, err := client.History(nil).Load(
 ### Ruby
 
 ```ruby
-client = WeatherDataSDK.test(nil, nil)
-result, err = client.History(nil).load(
-  { "id" => "test01" }, nil
-)
+client = WeatherDataSDK.test
+result, err = client.History().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:History(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:History():load({ id = "test01" })
 ```
 
 ## How it works
@@ -325,16 +321,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Weather Data API
-
-- Upstream: [https://weatherxu.com](https://weatherxu.com)
-- API docs: [https://weatherxu.com/documentation](https://weatherxu.com/documentation)
-
-- Commercial API operated by WeatherXu; see the [Terms](https://weatherxu.com/terms) and [Privacy Policy](https://weatherxu.com/privacy).
-- Free and paid plans are offered, distinguished by rate limits.
-- Requires an API key (`X-API-KEY` header) issued by WeatherXu.
-- Note: community trackers have flagged availability issues in the past; verify uptime before relying on it in production.
 
 ---
 

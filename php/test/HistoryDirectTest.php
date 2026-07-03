@@ -68,12 +68,14 @@ function history_direct_setup($mockres)
     $env = Runner::env_override([
         "WEATHERDATA_TEST_HISTORY_ENTID" => [],
         "WEATHERDATA_TEST_LIVE" => "FALSE",
+        "WEATHERDATA_APIKEY" => "NONE",
     ]);
 
     $live = $env["WEATHERDATA_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["WEATHERDATA_APIKEY"],
         ];
         $client = new WeatherDataSDK($merged_opts);
         return [

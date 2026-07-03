@@ -92,6 +92,7 @@ function history_basic_setup(extra)
     ["WEATHERDATA_TEST_HISTORY_ENTID"] = idmap,
     ["WEATHERDATA_TEST_LIVE"] = "FALSE",
     ["WEATHERDATA_TEST_EXPLAIN"] = "FALSE",
+    ["WEATHERDATA_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -103,6 +104,7 @@ function history_basic_setup(extra)
   if env["WEATHERDATA_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
+        apikey = env["WEATHERDATA_APIKEY"],
       },
       extra or {},
     })
