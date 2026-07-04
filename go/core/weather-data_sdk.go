@@ -245,11 +245,17 @@ func (sdk *WeatherDataSDK) Direct(fetchargs map[string]any) (map[string]any, err
 }
 
 
+// History returns a History entity bound to this client.
+// Idiomatic usage: client.History(nil).List(nil, nil) or
+// client.History(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *WeatherDataSDK) History(data map[string]any) WeatherDataEntity {
 	return NewHistoryEntityFunc(sdk, data)
 }
 
 
+// Weather returns a Weather entity bound to this client.
+// Idiomatic usage: client.Weather(nil).List(nil, nil) or
+// client.Weather(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *WeatherDataSDK) Weather(data map[string]any) WeatherDataEntity {
 	return NewWeatherEntityFunc(sdk, data)
 }

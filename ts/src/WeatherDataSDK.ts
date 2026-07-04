@@ -3,6 +3,8 @@
 import { HistoryEntity } from './entity/HistoryEntity'
 import { WeatherEntity } from './entity/WeatherEntity'
 
+export type * from './WeatherDataTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -203,12 +205,28 @@ class WeatherDataSDK {
 
 
 
+  _history?: HistoryEntity
+
+  // Idiomatic facade: `client.history.list()` / `client.history.load({ id })`.
+  get history(): HistoryEntity {
+    return (this._history ??= new HistoryEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.history` instead. */
   History(data?: any) {
     const self = this
     return new HistoryEntity(self,data)
   }
 
 
+  _weather?: WeatherEntity
+
+  // Idiomatic facade: `client.weather.list()` / `client.weather.load({ id })`.
+  get weather(): WeatherEntity {
+    return (this._weather ??= new WeatherEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.weather` instead. */
   Weather(data?: any) {
     const self = this
     return new WeatherEntity(self,data)

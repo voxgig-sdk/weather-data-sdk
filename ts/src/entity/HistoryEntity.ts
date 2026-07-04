@@ -14,9 +14,13 @@ import type {
   Control,
 } from '../types'
 
+import type {
+  History,
+  HistoryListMatch,
+} from '../WeatherDataTypes'
 
 // TODO: needs Entity superclass
-class HistoryEntity extends WeatherDataEntityBase {
+class HistoryEntity extends WeatherDataEntityBase<History> {
 
   constructor(client: WeatherDataSDK, entopts: any) {
     super(client, entopts)
@@ -33,7 +37,7 @@ class HistoryEntity extends WeatherDataEntityBase {
 
 
 
-  async list(this: any, reqmatch?: any, ctrl?: Control) {
+  async list(this: any, reqmatch?: HistoryListMatch, ctrl?: Control): Promise<History[]> {
 
     const utility = this._utility
 
@@ -133,7 +137,9 @@ class HistoryEntity extends WeatherDataEntityBase {
         throw err
       }
       else {
-        return undefined
+        // Off-happy-path (throw disabled): typed as any so the method's
+        // Promise<History[]> return stays clean under strict null checks.
+        return undefined as any
       }
     }
   }

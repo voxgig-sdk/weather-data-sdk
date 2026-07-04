@@ -88,7 +88,7 @@ same parameters as `direct()`.
 ## HistoryEntity
 
 ```lua
-local history = client:History(nil)
+local history = client:history(nil)
 ```
 
 ### Fields
@@ -108,7 +108,7 @@ local history = client:History(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:History():list()
+local results, err = client:history():list()
 ```
 
 ### Common Methods
@@ -144,7 +144,7 @@ Return the entity name.
 ## WeatherEntity
 
 ```lua
-local weather = client:Weather(nil)
+local weather = client:weather(nil)
 ```
 
 ### Fields
@@ -164,7 +164,7 @@ local weather = client:Weather(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:Weather():list()
+local results, err = client:weather():list()
 ```
 
 ### Common Methods

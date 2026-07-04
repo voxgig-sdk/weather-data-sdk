@@ -244,12 +244,38 @@ end
 
 
 
+-- Idiomatic facade: client:history():list() / client:history():load({ id = ... })
+function WeatherDataSDK:history(data)
+  local EntityMod = require("entity.history_entity")
+  if data == nil then
+    if self._history == nil then
+      self._history = EntityMod.new(self, nil)
+    end
+    return self._history
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:history() instead.
 function WeatherDataSDK:History(data)
   local EntityMod = require("entity.history_entity")
   return EntityMod.new(self, data)
 end
 
 
+-- Idiomatic facade: client:weather():list() / client:weather():load({ id = ... })
+function WeatherDataSDK:weather(data)
+  local EntityMod = require("entity.weather_entity")
+  if data == nil then
+    if self._weather == nil then
+      self._weather = EntityMod.new(self, nil)
+    end
+    return self._weather
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:weather() instead.
 function WeatherDataSDK:Weather(data)
   local EntityMod = require("entity.weather_entity")
   return EntityMod.new(self, data)

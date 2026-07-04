@@ -9,12 +9,9 @@ The Lua SDK for the WeatherData API — an entity-oriented client using Lua conv
 
 
 ## Install
-```bash
-luarocks install voxgig-sdk-weather-data
-```
-
-If the module is not yet published, add the source directory to
-your `LUA_PATH`:
+This package is not yet published to LuaRocks. Install it from the
+GitHub release tag (`lua/vX.Y.Z`, see [Releases](https://github.com/voxgig-sdk/weather-data-sdk/releases)),
+or add the source directory to your `LUA_PATH`:
 
 ```bash
 export LUA_PATH="path/to/lua/?.lua;path/to/lua/?/init.lua;;"
@@ -32,14 +29,14 @@ loading a specific record.
 local sdk = require("weather-data_sdk")
 
 local client = sdk.new({
-  apikey = os.getenv("WEATHER-DATA_APIKEY"),
+  apikey = os.getenv("WEATHER_DATA_APIKEY"),
 })
 ```
 
 ### 2. List historys
 
 ```lua
-local result, err = client:History():list()
+local result, err = client:history():list()
 if err then error(err) end
 
 if type(result) == "table" then
@@ -93,7 +90,7 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:WeatherData():load({ id = "test01" })
+local result, err = client:history():load({ id = "test01" })
 -- result contains mock response data
 ```
 
@@ -126,8 +123,8 @@ local client = sdk.new({
 Create a `.env.local` file at the project root:
 
 ```
-WEATHER-DATA_TEST_LIVE=TRUE
-WEATHER-DATA_APIKEY=<your-key>
+WEATHER_DATA_TEST_LIVE=TRUE
+WEATHER_DATA_APIKEY=<your-key>
 ```
 
 Then run:
@@ -246,7 +243,7 @@ API path: `/weather`
 
 ### History
 
-Create an instance: `const history = client.History()`
+Create an instance: `const history = client.history`
 
 #### Operations
 
@@ -267,13 +264,13 @@ Create an instance: `const history = client.History()`
 #### Example: List
 
 ```ts
-const historys = await client.History().list()
+const historys = await client.history.list()
 ```
 
 
 ### Weather
 
-Create an instance: `const weather = client.Weather()`
+Create an instance: `const weather = client.weather`
 
 #### Operations
 
@@ -294,7 +291,7 @@ Create an instance: `const weather = client.Weather()`
 #### Example: List
 
 ```ts
-const weathers = await client.Weather().list()
+const weathers = await client.weather.list()
 ```
 
 
@@ -369,11 +366,11 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local moon = client:Moon(nil)
-moon:load({ planet_id = "earth", id = "luna" }, nil)
+local history = client:history()
+history:load({ id = "example_id" })
 
--- moon:data_get() now returns the loaded moon data
--- moon:match_get() returns the last match criteria
+-- history:data_get() now returns the loaded history data
+-- history:match_get() returns the last match criteria
 ```
 
 Call `make()` to create a fresh instance with the same configuration

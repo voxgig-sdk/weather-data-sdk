@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch WeatherListMatch
+---@param ctrl? table
+---@return Weather[]
+---@return string? err
 function WeatherEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({
