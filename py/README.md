@@ -34,14 +34,16 @@ client = WeatherDataSDK({
 })
 ```
 
-### 2. List historys
+### 2. List history records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.history.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    historys = client.History().list({})
+    for history in historys:
+        print(history)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -89,8 +91,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = WeatherDataSDK.test()
 
-result = client.history.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+history = client.History().load({"id": "test01"})
+# history contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -244,7 +247,7 @@ API path: `/weather`
 
 ### History
 
-Create an instance: `const history = client.history`
+Create an instance: `history = client.History()`
 
 #### Operations
 
@@ -264,14 +267,14 @@ Create an instance: `const history = client.history`
 
 #### Example: List
 
-```ts
-const historys = await client.history.list()
+```python
+historys = client.History().list({})
 ```
 
 
 ### Weather
 
-Create an instance: `const weather = client.weather`
+Create an instance: `weather = client.Weather()`
 
 #### Operations
 
@@ -291,8 +294,8 @@ Create an instance: `const weather = client.weather`
 
 #### Example: List
 
-```ts
-const weathers = await client.weather.list()
+```python
+weathers = client.Weather().list({})
 ```
 
 
@@ -366,7 +369,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-history = client.history
+history = client.History()
 history.load({"id": "example_id"})
 
 # history.data_get() now returns the loaded history data

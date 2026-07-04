@@ -90,7 +90,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## HistoryEntity
 
 ```php
-$history = $client->history();
+$history = $client->History();
 ```
 
 ### Fields
@@ -110,7 +110,7 @@ $history = $client->history();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->history()->list([]);
+$results = $client->History()->list([]);
 ```
 
 ### Common Methods
@@ -146,7 +146,7 @@ Return the entity name.
 ## WeatherEntity
 
 ```php
-$weather = $client->weather();
+$weather = $client->Weather();
 ```
 
 ### Fields
@@ -166,7 +166,7 @@ $weather = $client->weather();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->weather()->list([]);
+$results = $client->Weather()->list([]);
 ```
 
 ### Common Methods

@@ -220,41 +220,21 @@ class WeatherDataSDK:
         }
 
 
-    @property
-    def history(self):
-        """Idiomatic facade: client.history.list() / client.history.load({"id": ...})."""
-        from entity.history_entity import HistoryEntity
-        cached = getattr(self, "_history", None)
-        if cached is None:
-            cached = HistoryEntity(self, None)
-            self._history = cached
-        return cached
-
-    def History(self, data=None):
-        # Deprecated: use client.history instead.
+    def History(self, data=None) -> "HistoryEntity":
+        """Entity factory: client.History().list({}) / client.History().load({"id": ...})."""
         from entity.history_entity import HistoryEntity
         return HistoryEntity(self, data)
 
 
-    @property
-    def weather(self):
-        """Idiomatic facade: client.weather.list() / client.weather.load({"id": ...})."""
-        from entity.weather_entity import WeatherEntity
-        cached = getattr(self, "_weather", None)
-        if cached is None:
-            cached = WeatherEntity(self, None)
-            self._weather = cached
-        return cached
-
-    def Weather(self, data=None):
-        # Deprecated: use client.weather instead.
+    def Weather(self, data=None) -> "WeatherEntity":
+        """Entity factory: client.Weather().list({}) / client.Weather().load({"id": ...})."""
         from entity.weather_entity import WeatherEntity
         return WeatherEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "WeatherDataSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -274,3 +254,10 @@ class WeatherDataSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.history_entity import HistoryEntity
+    from entity.weather_entity import WeatherEntity

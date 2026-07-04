@@ -85,7 +85,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## HistoryEntity
 
 ```python
-history = client.history
+history = client.History()
 ```
 
 ### Fields
@@ -105,7 +105,9 @@ history = client.history
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.history.list({})
+results = client.History().list({})
+for history in results:
+    print(history)
 ```
 
 ### Common Methods
@@ -140,7 +142,7 @@ Return the entity name.
 ## WeatherEntity
 
 ```python
-weather = client.weather
+weather = client.Weather()
 ```
 
 ### Fields
@@ -160,7 +162,9 @@ weather = client.weather
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.weather.list({})
+results = client.Weather().list({})
+for weather in results:
+    print(weather)
 ```
 
 ### Common Methods

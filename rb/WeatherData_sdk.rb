@@ -208,26 +208,14 @@ class WeatherDataSDK
   end
 
 
-  # Idiomatic facade: client.history.list / client.history.load({ "id" => ... })
-  def history
-    require_relative 'entity/history_entity'
-    @history ||= HistoryEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.history instead.
+  # Canonical facade: client.History.list / client.History.load({ "id" => ... })
   def History(data = nil)
     require_relative 'entity/history_entity'
     HistoryEntity.new(self, data)
   end
 
 
-  # Idiomatic facade: client.weather.list / client.weather.load({ "id" => ... })
-  def weather
-    require_relative 'entity/weather_entity'
-    @weather ||= WeatherEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.weather instead.
+  # Canonical facade: client.Weather.list / client.Weather.load({ "id" => ... })
   def Weather(data = nil)
     require_relative 'entity/weather_entity'
     WeatherEntity.new(self, data)

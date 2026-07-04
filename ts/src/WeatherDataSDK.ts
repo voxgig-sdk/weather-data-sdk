@@ -205,28 +205,14 @@ class WeatherDataSDK {
 
 
 
-  _history?: HistoryEntity
-
-  // Idiomatic facade: `client.history.list()` / `client.history.load({ id })`.
-  get history(): HistoryEntity {
-    return (this._history ??= new HistoryEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.history` instead. */
+  // Entity access: `client.History().list()` / `client.History().load({ id })`.
   History(data?: any) {
     const self = this
     return new HistoryEntity(self,data)
   }
 
 
-  _weather?: WeatherEntity
-
-  // Idiomatic facade: `client.weather.list()` / `client.weather.load({ id })`.
-  get weather(): WeatherEntity {
-    return (this._weather ??= new WeatherEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.weather` instead. */
+  // Entity access: `client.Weather().list()` / `client.Weather().load({ id })`.
   Weather(data?: any) {
     const self = this
     return new WeatherEntity(self,data)

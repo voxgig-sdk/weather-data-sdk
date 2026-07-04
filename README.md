@@ -28,9 +28,11 @@ const client = new WeatherDataSDK({
   apikey: process.env.WEATHER_DATA_APIKEY,
 })
 
-// List all historys
-const historys = await client.history.list()
-console.log(historys.data)
+// List all historys (returns History[])
+const historys = await client.History().list()
+for (const history of historys) {
+  console.log(history)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -89,9 +91,10 @@ client = WeatherDataSDK({
     "apikey": os.environ.get("WEATHER_DATA_APIKEY"),
 })
 
-# List all historys
-historys = client.history.list()
-print(historys)
+# List all historys (returns a list, raises on error)
+historys = client.History().list({})
+for history in historys:
+    print(history)
 ```
 
 ### PHP
@@ -104,8 +107,8 @@ $client = new WeatherDataSDK([
     "apikey" => getenv("WEATHER_DATA_APIKEY"),
 ]);
 
-// List all historys (throws on error)
-$historys = $client->history()->list();
+// List all historys (returns an array; throws on error)
+$historys = $client->History()->list();
 print_r($historys);
 ```
 
@@ -132,8 +135,8 @@ client = WeatherDataSDK.new({
   "apikey" => ENV["WEATHER_DATA_APIKEY"],
 })
 
-# List all historys
-historys = client.history.list
+# List all historys (returns an Array; raises on error)
+historys = client.History.list
 puts historys
 ```
 
@@ -147,7 +150,7 @@ local client = sdk.new({
 })
 
 -- List all historys
-local historys, err = client:history():list()
+local historys, err = client:History():list()
 print(historys)
 ```
 
@@ -160,22 +163,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = WeatherDataSDK.test()
-const result = await client.history.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const history = await client.History().load({ id: 'test01' })
+// history is a bare History populated with mock data
+console.log(history)
 ```
 
 ### Python
 
 ```python
 client = WeatherDataSDK.test()
-result = client.history.load({"id": "test01"})
+history = client.History().load({"id": "test01"})
+print(history)
 ```
 
 ### PHP
 
 ```php
-$client = WeatherDataSDK::test();
-$result = $client->history()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = WeatherDataSDK::test([
+    "entity" => ["history" => ["test01" => ["id" => "test01"]]],
+]);
+$history = $client->History()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -190,15 +198,18 @@ result, err := client.History(nil).Load(
 ### Ruby
 
 ```ruby
-client = WeatherDataSDK.test
-result = client.history.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = WeatherDataSDK.test({
+  "entity" => { "history" => { "test01" => { "id" => "test01" } } },
+})
+history = client.History.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:history():load({ id = "test01" })
+local result, err = client:History():load({ id = "test01" })
 ```
 
 ## How it works
@@ -246,6 +257,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

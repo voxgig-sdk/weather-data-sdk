@@ -30,16 +30,14 @@ client = WeatherDataSDK.new({
 })
 ```
 
-### 2. List historys
+### 2. List history records
 
 ```ruby
 begin
-  result = client.history.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of History records — iterate directly.
+  historys = client.History.list
+  historys.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -87,13 +85,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = WeatherDataSDK.test
+client = WeatherDataSDK.test({
+  "entity" => { "history" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.history.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+history = client.History.load({ "id" => "test01" })
+puts history
 ```
 
 ### Use a custom fetch function
@@ -246,7 +248,7 @@ API path: `/weather`
 
 ### History
 
-Create an instance: `const history = client.history`
+Create an instance: `history = client.History`
 
 #### Operations
 
@@ -266,14 +268,15 @@ Create an instance: `const history = client.history`
 
 #### Example: List
 
-```ts
-const historys = await client.history.list()
+```ruby
+# list returns an Array of History records (raises on error).
+historys = client.History.list
 ```
 
 
 ### Weather
 
-Create an instance: `const weather = client.weather`
+Create an instance: `weather = client.Weather`
 
 #### Operations
 
@@ -293,8 +296,9 @@ Create an instance: `const weather = client.weather`
 
 #### Example: List
 
-```ts
-const weathers = await client.weather.list()
+```ruby
+# list returns an Array of Weather records (raises on error).
+weathers = client.Weather.list
 ```
 
 
@@ -369,7 +373,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-history = client.history
+history = client.History
 history.load({ "id" => "example_id" })
 
 # history.data_get now returns the loaded history data

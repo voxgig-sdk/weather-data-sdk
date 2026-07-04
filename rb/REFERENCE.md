@@ -91,7 +91,7 @@ same parameters as `direct()`. Raises on error.
 ## HistoryEntity
 
 ```ruby
-history = client.history
+history = client.History
 ```
 
 ### Fields
@@ -111,7 +111,7 @@ history = client.history
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.history.list(nil)
+results = client.History.list(nil)
 ```
 
 ### Common Methods
@@ -147,7 +147,7 @@ Return the entity name.
 ## WeatherEntity
 
 ```ruby
-weather = client.weather
+weather = client.Weather
 ```
 
 ### Fields
@@ -167,7 +167,7 @@ weather = client.weather
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.weather.list(nil)
+results = client.Weather.list(nil)
 ```
 
 ### Common Methods

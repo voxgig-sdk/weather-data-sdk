@@ -122,7 +122,7 @@ Alias for `WeatherDataSDK.test()`.
 ## HistoryEntity
 
 ```ts
-const history = client.history
+const history = client.History()
 ```
 
 ### Fields
@@ -142,7 +142,7 @@ const history = client.history
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.history.list()
+const results = await client.History().list()
 ```
 
 ### Common Methods
@@ -176,7 +176,7 @@ Return a copy of the entity options.
 ## WeatherEntity
 
 ```ts
-const weather = client.weather
+const weather = client.Weather()
 ```
 
 ### Fields
@@ -196,7 +196,7 @@ const weather = client.weather
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.weather.list()
+const results = await client.Weather().list()
 ```
 
 ### Common Methods

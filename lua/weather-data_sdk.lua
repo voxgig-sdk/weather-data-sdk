@@ -244,8 +244,9 @@ end
 
 
 
--- Idiomatic facade: client:history():list() / client:history():load({ id = ... })
-function WeatherDataSDK:history(data)
+-- Idiomatic facade: client:History():list() / client:History():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function WeatherDataSDK:History(data)
   local EntityMod = require("entity.history_entity")
   if data == nil then
     if self._history == nil then
@@ -256,15 +257,10 @@ function WeatherDataSDK:history(data)
   return EntityMod.new(self, data)
 end
 
--- Deprecated: use client:history() instead.
-function WeatherDataSDK:History(data)
-  local EntityMod = require("entity.history_entity")
-  return EntityMod.new(self, data)
-end
 
-
--- Idiomatic facade: client:weather():list() / client:weather():load({ id = ... })
-function WeatherDataSDK:weather(data)
+-- Idiomatic facade: client:Weather():list() / client:Weather():load({ id = ... })
+-- Entity access is capitalised (PascalCase) for parity with the other SDKs.
+function WeatherDataSDK:Weather(data)
   local EntityMod = require("entity.weather_entity")
   if data == nil then
     if self._weather == nil then
@@ -272,12 +268,6 @@ function WeatherDataSDK:weather(data)
     end
     return self._weather
   end
-  return EntityMod.new(self, data)
-end
-
--- Deprecated: use client:weather() instead.
-function WeatherDataSDK:Weather(data)
-  local EntityMod = require("entity.weather_entity")
   return EntityMod.new(self, data)
 end
 
