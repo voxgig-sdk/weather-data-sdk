@@ -102,11 +102,11 @@ history := client.History(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | ``$ARRAY`` | No |  |
-| `core` | ``$OBJECT`` | No |  |
-| `currently` | ``$OBJECT`` | No |  |
-| `daily` | ``$ARRAY`` | No |  |
-| `hourly` | ``$ARRAY`` | No |  |
+| `alert` | `[]any` | No |  |
+| `core` | `map[string]any` | No |  |
+| `currently` | `map[string]any` | No |  |
+| `daily` | `[]any` | No |  |
+| `hourly` | `[]any` | No |  |
 
 ### Operations
 
@@ -152,11 +152,11 @@ weather := client.Weather(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | ``$ARRAY`` | No |  |
-| `core` | ``$OBJECT`` | No |  |
-| `currently` | ``$OBJECT`` | No |  |
-| `daily` | ``$ARRAY`` | No |  |
-| `hourly` | ``$ARRAY`` | No |  |
+| `alert` | `[]any` | No |  |
+| `core` | `map[string]any` | No |  |
+| `currently` | `map[string]any` | No |  |
+| `daily` | `[]any` | No |  |
+| `hourly` | `[]any` | No |  |
 
 ### Operations
 

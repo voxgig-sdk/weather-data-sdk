@@ -14,6 +14,11 @@
 ---@field hourly? table
 
 ---@class HistoryListMatch
+---@field alert? table
+---@field core? table
+---@field currently? table
+---@field daily? table
+---@field hourly? table
 
 ---@class Weather
 ---@field alert? table
@@ -23,6 +28,11 @@
 ---@field hourly? table
 
 ---@class WeatherListMatch
+---@field alert? table
+---@field core? table
+---@field currently? table
+---@field daily? table
+---@field hourly? table
 
 local M = {}
 

@@ -221,13 +221,13 @@ class WeatherDataSDK:
 
 
     def History(self, data=None) -> "HistoryEntity":
-        """Entity factory: client.History().list({}) / client.History().load({"id": ...})."""
+        """Entity factory: client.History().list() / client.History().load({"id": ...})."""
         from entity.history_entity import HistoryEntity
         return HistoryEntity(self, data)
 
 
     def Weather(self, data=None) -> "WeatherEntity":
-        """Entity factory: client.Weather().list({}) / client.Weather().load({"id": ...})."""
+        """Entity factory: client.Weather().list() / client.Weather().load({"id": ...})."""
         from entity.weather_entity import WeatherEntity
         return WeatherEntity(self, data)
 

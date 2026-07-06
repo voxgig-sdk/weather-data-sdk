@@ -22,7 +22,7 @@ class History
     public ?array $hourly = null;
 }
 
-/** Match filter for History#list (any subset of History fields). */
+/** Request payload for History#list. */
 class HistoryListMatch
 {
     public ?array $alert = null;
@@ -42,7 +42,7 @@ class Weather
     public ?array $hourly = null;
 }
 
-/** Match filter for Weather#list (any subset of Weather fields). */
+/** Request payload for Weather#list. */
 class WeatherListMatch
 {
     public ?array $alert = null;

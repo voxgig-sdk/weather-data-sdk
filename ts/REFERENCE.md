@@ -129,11 +129,11 @@ const history = client.History()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | ``$ARRAY`` | No |  |
-| `core` | ``$OBJECT`` | No |  |
-| `currently` | ``$OBJECT`` | No |  |
-| `daily` | ``$ARRAY`` | No |  |
-| `hourly` | ``$ARRAY`` | No |  |
+| `alert` | `any[]` | No |  |
+| `core` | `Record<string, any>` | No |  |
+| `currently` | `Record<string, any>` | No |  |
+| `daily` | `any[]` | No |  |
+| `hourly` | `any[]` | No |  |
 
 ### Operations
 
@@ -183,11 +183,11 @@ const weather = client.Weather()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | ``$ARRAY`` | No |  |
-| `core` | ``$OBJECT`` | No |  |
-| `currently` | ``$OBJECT`` | No |  |
-| `daily` | ``$ARRAY`` | No |  |
-| `hourly` | ``$ARRAY`` | No |  |
+| `alert` | `any[]` | No |  |
+| `core` | `Record<string, any>` | No |  |
+| `currently` | `Record<string, any>` | No |  |
+| `daily` | `any[]` | No |  |
+| `hourly` | `any[]` | No |  |
 
 ### Operations
 

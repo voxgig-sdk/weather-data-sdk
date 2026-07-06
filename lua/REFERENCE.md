@@ -95,11 +95,11 @@ local history = client:History(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | ``$ARRAY`` | No |  |
-| `core` | ``$OBJECT`` | No |  |
-| `currently` | ``$OBJECT`` | No |  |
-| `daily` | ``$ARRAY`` | No |  |
-| `hourly` | ``$ARRAY`` | No |  |
+| `alert` | `table` | No |  |
+| `core` | `table` | No |  |
+| `currently` | `table` | No |  |
+| `daily` | `table` | No |  |
+| `hourly` | `table` | No |  |
 
 ### Operations
 
@@ -151,11 +151,11 @@ local weather = client:Weather(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | ``$ARRAY`` | No |  |
-| `core` | ``$OBJECT`` | No |  |
-| `currently` | ``$OBJECT`` | No |  |
-| `daily` | ``$ARRAY`` | No |  |
-| `hourly` | ``$ARRAY`` | No |  |
+| `alert` | `table` | No |  |
+| `core` | `table` | No |  |
+| `currently` | `table` | No |  |
+| `daily` | `table` | No |  |
+| `hourly` | `table` | No |  |
 
 ### Operations
 

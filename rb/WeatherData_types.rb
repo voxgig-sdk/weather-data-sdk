@@ -33,7 +33,7 @@ History = Struct.new(
   keyword_init: true
 )
 
-# Match filter for History#list (any subset of History fields).
+# Request payload for History#list.
 #
 # @!attribute [rw] alert
 #   @return [Array, nil]
@@ -83,7 +83,7 @@ Weather = Struct.new(
   keyword_init: true
 )
 
-# Match filter for Weather#list (any subset of Weather fields).
+# Request payload for Weather#list.
 #
 # @!attribute [rw] alert
 #   @return [Array, nil]

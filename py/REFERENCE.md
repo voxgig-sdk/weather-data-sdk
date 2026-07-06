@@ -8,7 +8,7 @@ Complete API reference for the WeatherData Python SDK.
 ### Constructor
 
 ```python
-from weather-data_sdk import WeatherDataSDK
+from weatherdata_sdk import WeatherDataSDK
 
 client = WeatherDataSDK(options)
 ```
@@ -92,20 +92,20 @@ history = client.History()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | ``$ARRAY`` | No |  |
-| `core` | ``$OBJECT`` | No |  |
-| `currently` | ``$OBJECT`` | No |  |
-| `daily` | ``$ARRAY`` | No |  |
-| `hourly` | ``$ARRAY`` | No |  |
+| `alert` | `list` | No |  |
+| `core` | `dict` | No |  |
+| `currently` | `dict` | No |  |
+| `daily` | `list` | No |  |
+| `hourly` | `list` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.History().list({})
+results = client.History().list()
 for history in results:
     print(history)
 ```
@@ -149,20 +149,20 @@ weather = client.Weather()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | ``$ARRAY`` | No |  |
-| `core` | ``$OBJECT`` | No |  |
-| `currently` | ``$OBJECT`` | No |  |
-| `daily` | ``$ARRAY`` | No |  |
-| `hourly` | ``$ARRAY`` | No |  |
+| `alert` | `list` | No |  |
+| `core` | `dict` | No |  |
+| `currently` | `dict` | No |  |
+| `daily` | `list` | No |  |
+| `hourly` | `list` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.Weather().list({})
+results = client.Weather().list()
 for weather in results:
     print(weather)
 ```

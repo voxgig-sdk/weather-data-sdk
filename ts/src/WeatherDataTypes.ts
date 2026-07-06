@@ -13,7 +13,13 @@ export interface History {
   hourly?: any[]
 }
 
-export type HistoryListMatch = Partial<History>
+export interface HistoryListMatch {
+  alert?: any[]
+  core?: Record<string, any>
+  currently?: Record<string, any>
+  daily?: any[]
+  hourly?: any[]
+}
 
 export interface Weather {
   alert?: any[]
@@ -23,5 +29,11 @@ export interface Weather {
   hourly?: any[]
 }
 
-export type WeatherListMatch = Partial<Weather>
+export interface WeatherListMatch {
+  alert?: any[]
+  core?: Record<string, any>
+  currently?: Record<string, any>
+  daily?: any[]
+  hourly?: any[]
+}
 

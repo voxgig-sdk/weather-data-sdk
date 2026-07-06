@@ -17,8 +17,7 @@ type History struct {
 	Hourly *[]any `json:"hourly,omitempty"`
 }
 
-// HistoryListMatch mirrors the history fields as an all-optional match
-// filter (Go analog of Partial<History>).
+// HistoryListMatch is the typed request payload for History.ListTyped.
 type HistoryListMatch struct {
 	Alert *[]any `json:"alert,omitempty"`
 	Core *map[string]any `json:"core,omitempty"`
@@ -36,8 +35,7 @@ type Weather struct {
 	Hourly *[]any `json:"hourly,omitempty"`
 }
 
-// WeatherListMatch mirrors the weather fields as an all-optional match
-// filter (Go analog of Partial<Weather>).
+// WeatherListMatch is the typed request payload for Weather.ListTyped.
 type WeatherListMatch struct {
 	Alert *[]any `json:"alert,omitempty"`
 	Core *map[string]any `json:"core,omitempty"`

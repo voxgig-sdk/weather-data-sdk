@@ -8,7 +8,7 @@ Complete API reference for the WeatherData Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'weather-data_sdk'
+require_relative 'WeatherData_sdk'
 
 client = WeatherDataSDK.new(options)
 ```
@@ -98,20 +98,20 @@ history = client.History
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | ``$ARRAY`` | No |  |
-| `core` | ``$OBJECT`` | No |  |
-| `currently` | ``$OBJECT`` | No |  |
-| `daily` | ``$ARRAY`` | No |  |
-| `hourly` | ``$ARRAY`` | No |  |
+| `alert` | `Array` | No |  |
+| `core` | `Hash` | No |  |
+| `currently` | `Hash` | No |  |
+| `daily` | `Array` | No |  |
+| `hourly` | `Array` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.History.list(nil)
+results = client.History.list
 ```
 
 ### Common Methods
@@ -154,20 +154,20 @@ weather = client.Weather
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | ``$ARRAY`` | No |  |
-| `core` | ``$OBJECT`` | No |  |
-| `currently` | ``$OBJECT`` | No |  |
-| `daily` | ``$ARRAY`` | No |  |
-| `hourly` | ``$ARRAY`` | No |  |
+| `alert` | `Array` | No |  |
+| `core` | `Hash` | No |  |
+| `currently` | `Hash` | No |  |
+| `daily` | `Array` | No |  |
+| `hourly` | `Array` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.Weather.list(nil)
+results = client.Weather.list
 ```
 
 ### Common Methods
