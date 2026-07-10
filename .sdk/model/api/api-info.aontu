@@ -9,6 +9,13 @@ main: {
         url: "https://weatherxu.com/contact"
       }
       description: "WeatherXu provides comprehensive weather data through a simple JSON-based REST API. Users can access current conditions, hourly forecasts, and 10-day predictions for any location worldwide, ensuring reliability and accuracy."
+      security: {
+        in: "header"
+        name: "X-API-KEY"
+        prefix: ""
+        scheme: "ApiKeyAuth"
+        type: "apiKey"
+      }
       servers: [
         {
           description: "Production server for current and forecast weather data"
@@ -19,10 +26,10 @@ main: {
           url: "https://historical.weatherxu.com/v1"
         }
       ]
+      summary: "WeatherXu provides comprehensive weather data through a simple JSON-based REST API."
       termsOfService: "https://weatherxu.com/terms-conditions"
       title: "Weather Data API"
       version: "1.0.0"
+      website: "https://weatherxu.com/documentation"
     }
   }
-}
-
