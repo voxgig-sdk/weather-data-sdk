@@ -19,11 +19,15 @@ import {
 describe('HistoryDirect', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when WEATHERDATA_TEST_LIVE=TRUE.
-  afterEach(liveDelay('WEATHERDATA_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when WEATHER_DATA_TEST_LIVE=TRUE.
+  afterEach(liveDelay('WEATHER_DATA_TEST_LIVE'))
 
   test('direct-exists', async () => {
     const sdk = new WeatherDataSDK({
+      // Concrete base: a live construction must satisfy any server
+      // variables a templated base URL declares; overriding base with a
+      // literal (as the direct flow tests do) sidesteps the requirement.
+      base: 'http://localhost:8080',
       system: { fetch: async () => ({}) }
     })
     assert('function' === typeof sdk.direct)
@@ -83,19 +87,19 @@ function directSetup(mockres?: any) {
   const calls: any[] = []
 
   const env = envOverride({
-    'WEATHERDATA_TEST_HISTORY_ENTID': {},
-    'WEATHERDATA_TEST_LIVE': 'FALSE',
-    'WEATHERDATA_APIKEY': 'NONE',
+    'WEATHER_DATA_TEST_HISTORY_ENTID': {},
+    'WEATHER_DATA_TEST_LIVE': 'FALSE',
+    'WEATHER_DATA_APIKEY': 'NONE',
   })
 
-  const live = 'TRUE' === env.WEATHERDATA_TEST_LIVE
+  const live = 'TRUE' === env.WEATHER_DATA_TEST_LIVE
 
   if (live) {
     const client = new WeatherDataSDK({
-      apikey: env.WEATHERDATA_APIKEY,
+      apikey: env.WEATHER_DATA_APIKEY,
     })
 
-    let idmap: any = env['WEATHERDATA_TEST_HISTORY_ENTID']
+    let idmap: any = env['WEATHER_DATA_TEST_HISTORY_ENTID']
     if ('string' === typeof idmap && idmap.startsWith('{')) {
       idmap = JSON.parse(idmap)
     }

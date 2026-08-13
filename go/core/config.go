@@ -30,7 +30,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "alert",
+						"name": "alerts",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 0,
@@ -112,6 +112,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/history",
 								"parts": []any{
@@ -132,7 +133,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{
@@ -143,7 +143,7 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"active": true,
-						"name": "alert",
+						"name": "alerts",
 						"req": false,
 						"type": "`$ARRAY`",
 						"index$": 0,
@@ -207,6 +207,7 @@ func MakeConfig() map[string]any {
 										},
 									},
 								},
+								"kind": "http",
 								"method": "GET",
 								"orig": "/weather",
 								"parts": []any{
@@ -225,7 +226,6 @@ func MakeConfig() map[string]any {
 								"index$": 0,
 							},
 						},
-						"key$": "list",
 					},
 				},
 				"relations": map[string]any{

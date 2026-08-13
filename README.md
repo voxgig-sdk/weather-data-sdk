@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = WeatherDataSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = WeatherDataSDK.test({
+  entity: {
+    history: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const historys = await client.History().list()
-// historys is an array of bare History records populated with mock data
+// historys is an array of History entities, populated with mock data
+// — call historys[0].data() for the record itself
 console.log(historys)
 ```
 
@@ -112,7 +121,7 @@ const client = new WeatherDataSDK({
   apikey: process.env.WEATHER_DATA_APIKEY,
 })
 
-// List all historys (returns History[])
+// List all historys (returns HistoryEntity[] — .data() for the record)
 const historys = await client.History().list()
 for (const history of historys) {
   console.log(history)
@@ -357,6 +366,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://weatherxu.com/contact](https://weatherxu.com/contact)
 

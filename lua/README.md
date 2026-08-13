@@ -45,7 +45,7 @@ local historys, err = client:History():list()
 if err then error(err) end
 
 for _, item in ipairs(historys) do
-  print(item["alert"])
+  print(item["alerts"])
 end
 ```
 
@@ -223,9 +223,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local history, err = client:History():load()
+    local history, err = client:History():list()
     if err then error(err) end
-    -- history is the loaded record
+    -- history is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.
@@ -236,7 +236,7 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `alert` |  |
+| `alerts` |  |
 | `core` |  |
 | `currently` |  |
 | `daily` |  |
@@ -250,7 +250,7 @@ API path: `/history`
 
 | Field | Description |
 | --- | --- |
-| `alert` |  |
+| `alerts` |  |
 | `core` |  |
 | `currently` |  |
 | `daily` |  |
@@ -279,7 +279,7 @@ Create an instance: `local history = client:History(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alert` | `table` |  |
+| `alerts` | `table` |  |
 | `core` | `table` |  |
 | `currently` | `table` |  |
 | `daily` | `table` |  |
@@ -306,7 +306,7 @@ Create an instance: `local weather = client:Weather(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alert` | `table` |  |
+| `alerts` | `table` |  |
 | `core` | `table` |  |
 | `currently` | `table` |  |
 | `daily` | `table` |  |

@@ -40,7 +40,7 @@ try {
     // list() returns an array of History records — iterate directly.
     $historys = $client->History()->list();
     foreach ($historys as $item) {
-        echo $item["alert"] . "\n";
+        echo $item["alerts"] . "\n";
     }
 } catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
@@ -127,7 +127,8 @@ Create a mock client for unit testing — no server required:
 ```php
 $client = WeatherDataSDK::test();
 
-// Entity ops return the bare mock record (throws on error).
+// Entity ops return the ENTITY (throws on error);
+// call data_get() for the mock record.
 $history = $client->History()->list();
 print_r($history);
 ```
@@ -229,7 +230,7 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return the bare result data (an `array` for single-entity
+Entity operations return the ENTITY (call data_get() for the record) (an `array` for single-entity
 ops, a `list` for `list`) and throw on error. Wrap calls in
 `try`/`catch` to handle failures.
 
@@ -251,7 +252,7 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `alert` |  |
+| `alerts` |  |
 | `core` |  |
 | `currently` |  |
 | `daily` |  |
@@ -265,7 +266,7 @@ API path: `/history`
 
 | Field | Description |
 | --- | --- |
-| `alert` |  |
+| `alerts` |  |
 | `core` |  |
 | `currently` |  |
 | `daily` |  |
@@ -294,7 +295,7 @@ Create an instance: `$history = $client->History();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alert` | `array` |  |
+| `alerts` | `array` |  |
 | `core` | `array` |  |
 | `currently` | `array` |  |
 | `daily` | `array` |  |
@@ -322,7 +323,7 @@ Create an instance: `$weather = $client->Weather();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alert` | `array` |  |
+| `alerts` | `array` |  |
 | `core` | `array` |  |
 | `currently` | `array` |  |
 | `daily` | `array` |  |

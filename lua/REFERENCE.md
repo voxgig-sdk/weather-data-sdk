@@ -95,7 +95,7 @@ local history = client:History(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | `table` | No |  |
+| `alerts` | `table` | No |  |
 | `core` | `table` | No |  |
 | `currently` | `table` | No |  |
 | `daily` | `table` | No |  |
@@ -151,7 +151,7 @@ local weather = client:Weather(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | `table` | No |  |
+| `alerts` | `table` | No |  |
 | `core` | `table` | No |  |
 | `currently` | `table` | No |  |
 | `daily` | `table` | No |  |

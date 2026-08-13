@@ -6,7 +6,7 @@
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 
 export interface History {
-  alert?: any[]
+  alerts?: any[]
   core?: Record<string, any>
   currently?: Record<string, any>
   daily?: any[]
@@ -14,7 +14,7 @@ export interface History {
 }
 
 export interface HistoryListMatch {
-  alert?: any[]
+  alerts?: any[]
   core?: Record<string, any>
   currently?: Record<string, any>
   daily?: any[]
@@ -22,7 +22,7 @@ export interface HistoryListMatch {
 }
 
 export interface Weather {
-  alert?: any[]
+  alerts?: any[]
   core?: Record<string, any>
   currently?: Record<string, any>
   daily?: any[]
@@ -30,7 +30,7 @@ export interface Weather {
 }
 
 export interface WeatherListMatch {
-  alert?: any[]
+  alerts?: any[]
   core?: Record<string, any>
   currently?: Record<string, any>
   daily?: any[]

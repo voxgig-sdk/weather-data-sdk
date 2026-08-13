@@ -36,7 +36,7 @@ class WeatherDataConfig
           'fields' => [
             [
               'active' => true,
-              'name' => 'alert',
+              'name' => 'alerts',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 0,
@@ -118,6 +118,7 @@ class WeatherDataConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/history',
                   'parts' => [
@@ -149,7 +150,7 @@ class WeatherDataConfig
           'fields' => [
             [
               'active' => true,
-              'name' => 'alert',
+              'name' => 'alerts',
               'req' => false,
               'type' => '`$ARRAY`',
               'index$' => 0,
@@ -213,6 +214,7 @@ class WeatherDataConfig
                       ],
                     ],
                   ],
+                  'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/weather',
                   'parts' => [

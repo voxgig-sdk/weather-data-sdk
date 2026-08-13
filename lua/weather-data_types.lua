@@ -7,28 +7,28 @@
 -- edit by hand.
 
 ---@class History
----@field alert? table
+---@field alerts? table
 ---@field core? table
 ---@field currently? table
 ---@field daily? table
 ---@field hourly? table
 
 ---@class HistoryListMatch
----@field alert? table
+---@field alerts? table
 ---@field core? table
 ---@field currently? table
 ---@field daily? table
 ---@field hourly? table
 
 ---@class Weather
----@field alert? table
+---@field alerts? table
 ---@field core? table
 ---@field currently? table
 ---@field daily? table
 ---@field hourly? table
 
 ---@class WeatherListMatch
----@field alert? table
+---@field alerts? table
 ---@field core? table
 ---@field currently? table
 ---@field daily? table

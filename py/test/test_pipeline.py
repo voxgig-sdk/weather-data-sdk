@@ -16,11 +16,11 @@
 import pytest
 
 from weatherdata_sdk import WeatherDataSDK
-from core.error import WeatherDataError
-from core.result import WeatherDataResult
-from core.response import WeatherDataResponse
-from core.spec import WeatherDataSpec
-from feature.base_feature import WeatherDataBaseFeature
+from weatherdata_sdk.core.error import WeatherDataError
+from weatherdata_sdk.core.result import WeatherDataResult
+from weatherdata_sdk.core.response import WeatherDataResponse
+from weatherdata_sdk.core.spec import WeatherDataSpec
+from weatherdata_sdk.feature.base_feature import WeatherDataBaseFeature
 
 
 def _client():

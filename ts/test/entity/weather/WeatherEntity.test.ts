@@ -26,8 +26,8 @@ import {
 describe('WeatherEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when WEATHERDATA_TEST_LIVE=TRUE.
-  afterEach(liveDelay('WEATHERDATA_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when WEATHER_DATA_TEST_LIVE=TRUE.
+  afterEach(liveDelay('WEATHER_DATA_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = WeatherDataSDK.test()
@@ -63,7 +63,7 @@ describe('WeatherEntity', async () => {
     const weather_ref01_ent = client.Weather()
     const weather_ref01_match: any = {}
 
-    const weather_ref01_list = await weather_ref01_ent.list(weather_ref01_match)
+    const weather_ref01_list = (await weather_ref01_ent.list(weather_ref01_match)).map((e: any) => e.data())
 
 
   })

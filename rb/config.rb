@@ -31,7 +31,7 @@ module WeatherDataConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "alert",
+              "name" => "alerts",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 0,
@@ -113,6 +113,7 @@ module WeatherDataConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/history",
                   "parts" => [
@@ -144,7 +145,7 @@ module WeatherDataConfig
           "fields" => [
             {
               "active" => true,
-              "name" => "alert",
+              "name" => "alerts",
               "req" => false,
               "type" => "`$ARRAY`",
               "index$" => 0,
@@ -208,6 +209,7 @@ module WeatherDataConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/weather",
                   "parts" => [

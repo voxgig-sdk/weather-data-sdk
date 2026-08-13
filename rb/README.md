@@ -39,7 +39,7 @@ begin
   # list returns an Array of History records — iterate directly.
   historys = client.History.list
   historys.each do |item|
-    puts "#{item["alert"]}"
+    puts "#{item["alerts"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -121,7 +121,8 @@ Create a mock client for unit testing — no server required:
 ```ruby
 client = WeatherDataSDK.test
 
-# Entity ops return the bare mock record (raises on error).
+# Entity ops return the ENTITY (raises on error);
+# call data_get for the mock record.
 history = client.History.list()
 puts history
 ```
@@ -241,7 +242,7 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `alert` |  |
+| `alerts` |  |
 | `core` |  |
 | `currently` |  |
 | `daily` |  |
@@ -255,7 +256,7 @@ API path: `/history`
 
 | Field | Description |
 | --- | --- |
-| `alert` |  |
+| `alerts` |  |
 | `core` |  |
 | `currently` |  |
 | `daily` |  |
@@ -284,7 +285,7 @@ Create an instance: `history = client.History`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alert` | `Array` |  |
+| `alerts` | `Array` |  |
 | `core` | `Hash` |  |
 | `currently` | `Hash` |  |
 | `daily` | `Array` |  |
@@ -312,7 +313,7 @@ Create an instance: `weather = client.Weather`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alert` | `Array` |  |
+| `alerts` | `Array` |  |
 | `core` | `Hash` |  |
 | `currently` | `Hash` |  |
 | `daily` | `Array` |  |

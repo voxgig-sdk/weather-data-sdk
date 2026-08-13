@@ -37,7 +37,9 @@ const client = new WeatherDataSDK({
 
 ### 2. List history records
 
-`list()` resolves to an array of History objects — iterate it directly:
+`list()` resolves to an array of History ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const historys = await client.History().list()
@@ -122,7 +124,8 @@ Create a mock client for unit testing — no server required:
 const client = WeatherDataSDK.test()
 
 const history = await client.History().list()
-// history is a bare entity populated with mock response data
+// history is the entity, populated with mock response data
+// — call history.data() for the record itself
 console.log(history)
 ```
 
@@ -291,7 +294,7 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `alert` |  |
+| `alerts` |  |
 | `core` |  |
 | `currently` |  |
 | `daily` |  |
@@ -305,7 +308,7 @@ API path: `/history`
 
 | Field | Description |
 | --- | --- |
-| `alert` |  |
+| `alerts` |  |
 | `core` |  |
 | `currently` |  |
 | `daily` |  |
@@ -334,7 +337,7 @@ Create an instance: `const history = client.History()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alert` | `any[]` |  |
+| `alerts` | `any[]` |  |
 | `core` | `Record<string, any>` |  |
 | `currently` | `Record<string, any>` |  |
 | `daily` | `any[]` |  |
@@ -361,7 +364,7 @@ Create an instance: `const weather = client.Weather()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alert` | `any[]` |  |
+| `alerts` | `any[]` |  |
 | `core` | `Record<string, any>` |  |
 | `currently` | `Record<string, any>` |  |
 | `daily` | `any[]` |  |

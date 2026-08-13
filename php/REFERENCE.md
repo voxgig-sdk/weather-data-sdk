@@ -97,7 +97,7 @@ $history = $client->History();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | `array` | No |  |
+| `alerts` | `array` | No |  |
 | `core` | `array` | No |  |
 | `currently` | `array` | No |  |
 | `daily` | `array` | No |  |
@@ -153,7 +153,7 @@ $weather = $client->Weather();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | `array` | No |  |
+| `alerts` | `array` | No |  |
 | `core` | `array` | No |  |
 | `currently` | `array` | No |  |
 | `daily` | `array` | No |  |

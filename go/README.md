@@ -266,7 +266,7 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"alert"` |  |
+| `"alerts"` |  |
 | `"core"` |  |
 | `"currently"` |  |
 | `"daily"` |  |
@@ -280,7 +280,7 @@ API path: `/history`
 
 | Field | Description |
 | --- | --- |
-| `"alert"` |  |
+| `"alerts"` |  |
 | `"core"` |  |
 | `"currently"` |  |
 | `"daily"` |  |
@@ -309,7 +309,7 @@ Create an instance: `history := client.History(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alert` | `[]any` |  |
+| `alerts` | `[]any` |  |
 | `core` | `map[string]any` |  |
 | `currently` | `map[string]any` |  |
 | `daily` | `[]any` |  |
@@ -340,7 +340,7 @@ Create an instance: `weather := client.Weather(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alert` | `[]any` |  |
+| `alerts` | `[]any` |  |
 | `core` | `map[string]any` |  |
 | `currently` | `map[string]any` |  |
 | `daily` | `[]any` |  |

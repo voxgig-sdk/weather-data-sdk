@@ -103,7 +103,7 @@ fmt.Println(history.GetName()) // "history"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | `[]any` | No |  |
+| `alerts` | `[]any` | No |  |
 | `core` | `map[string]any` | No |  |
 | `currently` | `map[string]any` | No |  |
 | `daily` | `[]any` | No |  |
@@ -158,7 +158,7 @@ fmt.Println(weather.GetName()) // "weather"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | `[]any` | No |  |
+| `alerts` | `[]any` | No |  |
 | `core` | `map[string]any` | No |  |
 | `currently` | `map[string]any` | No |  |
 | `daily` | `[]any` | No |  |

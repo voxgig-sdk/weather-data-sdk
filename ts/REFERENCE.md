@@ -129,7 +129,7 @@ const history = client.History()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | `any[]` | No |  |
+| `alerts` | `any[]` | No |  |
 | `core` | `Record<string, any>` | No |  |
 | `currently` | `Record<string, any>` | No |  |
 | `daily` | `any[]` | No |  |
@@ -183,7 +183,7 @@ const weather = client.Weather()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | `any[]` | No |  |
+| `alerts` | `any[]` | No |  |
 | `core` | `Record<string, any>` | No |  |
 | `currently` | `Record<string, any>` | No |  |
 | `daily` | `any[]` | No |  |

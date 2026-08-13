@@ -2,21 +2,21 @@
   "existing": {
     "weather": {
       "WEATHER00": {
-        "alert": [],
+        "alerts": [],
         "core": {},
         "currently": {},
         "daily": [],
         "hourly": []
       },
       "WEATHER01": {
-        "alert": [],
+        "alerts": [],
         "core": {},
         "currently": {},
         "daily": [],
         "hourly": []
       },
       "WEATHER02": {
-        "alert": [],
+        "alerts": [],
         "core": {},
         "currently": {},
         "daily": [],
@@ -27,7 +27,7 @@
   "new": {
     "weather": {
       "weather_ref01": {
-        "alert": [],
+        "alerts": [],
         "core": {},
         "currently": {},
         "daily": [],

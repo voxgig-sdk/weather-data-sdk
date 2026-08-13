@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from weatherdata_sdk.utility.voxgig_struct import voxgig_struct as vs
 from weatherdata_sdk import WeatherDataSDK
-from core import helpers
+from weatherdata_sdk.core import helpers
 from test import runner
 
 
@@ -58,16 +58,16 @@ def _history_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "WEATHERDATA_TEST_HISTORY_ENTID": {},
-        "WEATHERDATA_TEST_LIVE": "FALSE",
-        "WEATHERDATA_APIKEY": "NONE",
+        "WEATHER_DATA_TEST_HISTORY_ENTID": {},
+        "WEATHER_DATA_TEST_LIVE": "FALSE",
+        "WEATHER_DATA_APIKEY": "NONE",
     })
 
-    live = env.get("WEATHERDATA_TEST_LIVE") == "TRUE"
+    live = env.get("WEATHER_DATA_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
-            "apikey": env.get("WEATHERDATA_APIKEY"),
+            "apikey": env.get("WEATHER_DATA_APIKEY"),
         }
         client = WeatherDataSDK(merged_opts)
         return {

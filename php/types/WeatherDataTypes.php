@@ -15,7 +15,7 @@ declare(strict_types=1);
 /** History entity data model. */
 class History
 {
-    public ?array $alert = null;
+    public ?array $alerts = null;
     public ?array $core = null;
     public ?array $currently = null;
     public ?array $daily = null;
@@ -25,7 +25,7 @@ class History
 /** Request payload for History#list. */
 class HistoryListMatch
 {
-    public ?array $alert = null;
+    public ?array $alerts = null;
     public ?array $core = null;
     public ?array $currently = null;
     public ?array $daily = null;
@@ -35,7 +35,7 @@ class HistoryListMatch
 /** Weather entity data model. */
 class Weather
 {
-    public ?array $alert = null;
+    public ?array $alerts = null;
     public ?array $core = null;
     public ?array $currently = null;
     public ?array $daily = null;
@@ -45,7 +45,7 @@ class Weather
 /** Request payload for Weather#list. */
 class WeatherListMatch
 {
-    public ?array $alert = null;
+    public ?array $alerts = null;
     public ?array $core = null;
     public ?array $currently = null;
     public ?array $daily = null;

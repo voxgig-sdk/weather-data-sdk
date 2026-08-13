@@ -92,7 +92,7 @@ history = client.History()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | `list` | No |  |
+| `alerts` | `list` | No |  |
 | `core` | `dict` | No |  |
 | `currently` | `dict` | No |  |
 | `daily` | `list` | No |  |
@@ -149,7 +149,7 @@ weather = client.Weather()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | `list` | No |  |
+| `alerts` | `list` | No |  |
 | `core` | `dict` | No |  |
 | `currently` | `dict` | No |  |
 | `daily` | `list` | No |  |

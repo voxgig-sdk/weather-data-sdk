@@ -21,7 +21,7 @@ class Config {
 
 
   main = {
-    name: 'ProjectName',
+    name: 'WeatherData',
   }
 
 
@@ -63,7 +63,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "alert",
+          "name": "alerts",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
@@ -145,6 +145,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/history",
               "parts": [
@@ -176,7 +177,7 @@ class Config {
       "fields": [
         {
           "active": true,
-          "name": "alert",
+          "name": "alerts",
           "req": false,
           "type": "`$ARRAY`",
           "index$": 0
@@ -240,6 +241,7 @@ class Config {
                   }
                 ]
               },
+              "kind": "http",
               "method": "GET",
               "orig": "/weather",
               "parts": [

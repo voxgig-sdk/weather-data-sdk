@@ -98,7 +98,7 @@ history = client.History
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | `Array` | No |  |
+| `alerts` | `Array` | No |  |
 | `core` | `Hash` | No |  |
 | `currently` | `Hash` | No |  |
 | `daily` | `Array` | No |  |
@@ -154,7 +154,7 @@ weather = client.Weather
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alert` | `Array` | No |  |
+| `alerts` | `Array` | No |  |
 | `core` | `Hash` | No |  |
 | `currently` | `Hash` | No |  |
 | `daily` | `Array` | No |  |

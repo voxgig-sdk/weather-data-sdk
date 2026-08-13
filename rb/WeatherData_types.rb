@@ -10,7 +10,7 @@
 
 # History entity data model.
 #
-# @!attribute [rw] alert
+# @!attribute [rw] alerts
 #   @return [Array, nil]
 #
 # @!attribute [rw] core
@@ -25,7 +25,7 @@
 # @!attribute [rw] hourly
 #   @return [Array, nil]
 History = Struct.new(
-  :alert,
+  :alerts,
   :core,
   :currently,
   :daily,
@@ -35,7 +35,7 @@ History = Struct.new(
 
 # Request payload for History#list.
 #
-# @!attribute [rw] alert
+# @!attribute [rw] alerts
 #   @return [Array, nil]
 #
 # @!attribute [rw] core
@@ -50,7 +50,7 @@ History = Struct.new(
 # @!attribute [rw] hourly
 #   @return [Array, nil]
 HistoryListMatch = Struct.new(
-  :alert,
+  :alerts,
   :core,
   :currently,
   :daily,
@@ -60,7 +60,7 @@ HistoryListMatch = Struct.new(
 
 # Weather entity data model.
 #
-# @!attribute [rw] alert
+# @!attribute [rw] alerts
 #   @return [Array, nil]
 #
 # @!attribute [rw] core
@@ -75,7 +75,7 @@ HistoryListMatch = Struct.new(
 # @!attribute [rw] hourly
 #   @return [Array, nil]
 Weather = Struct.new(
-  :alert,
+  :alerts,
   :core,
   :currently,
   :daily,
@@ -85,7 +85,7 @@ Weather = Struct.new(
 
 # Request payload for Weather#list.
 #
-# @!attribute [rw] alert
+# @!attribute [rw] alerts
 #   @return [Array, nil]
 #
 # @!attribute [rw] core
@@ -100,7 +100,7 @@ Weather = Struct.new(
 # @!attribute [rw] hourly
 #   @return [Array, nil]
 WeatherListMatch = Struct.new(
-  :alert,
+  :alerts,
   :core,
   :currently,
   :daily,

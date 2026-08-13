@@ -2,21 +2,21 @@
   "existing": {
     "history": {
       "HISTORY00": {
-        "alert": [],
+        "alerts": [],
         "core": {},
         "currently": {},
         "daily": [],
         "hourly": []
       },
       "HISTORY01": {
-        "alert": [],
+        "alerts": [],
         "core": {},
         "currently": {},
         "daily": [],
         "hourly": []
       },
       "HISTORY02": {
-        "alert": [],
+        "alerts": [],
         "core": {},
         "currently": {},
         "daily": [],
@@ -27,7 +27,7 @@
   "new": {
     "history": {
       "history_ref01": {
-        "alert": [],
+        "alerts": [],
         "core": {},
         "currently": {},
         "daily": [],
