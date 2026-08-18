@@ -5,6 +5,29 @@ declare(strict_types=1);
 
 class WeatherDataConfig
 {
+    /** @var array<string,mixed>|null */
+    private static ?array $shared_config = null;
+
+    /**
+     * Return the process-wide config, built once on first use. The SDK reads
+     * the config on every request and never writes to it, so one instance is
+     * shared by every client rather than rebuilt per client.
+     *
+     * PHP arrays are copy-on-write, so callers that do mutate the result get
+     * their own copy and cannot disturb the shared one.
+     */
+    public static function shared_config(): array
+    {
+        if (self::$shared_config === null) {
+            self::$shared_config = self::make_config();
+        }
+        return self::$shared_config;
+    }
+
+    /**
+     * Build a fresh, fully materialised config array. Every call rebuilds the
+     * whole structure, so prefer shared_config unless you need a private copy.
+     */
     public static function make_config(): array
     {
         return [
@@ -35,39 +58,24 @@ class WeatherDataConfig
         'history' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'alerts',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'core',
-              'req' => false,
               'type' => '`$OBJECT`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'currently',
-              'req' => false,
               'type' => '`$OBJECT`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'daily',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 3,
             ],
             [
-              'active' => true,
               'name' => 'hourly',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 4,
             ],
           ],
           'name' => 'history',
@@ -77,11 +85,9 @@ class WeatherDataConfig
               'name' => 'list',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'example' => 1704970800,
                         'kind' => 'query',
                         'name' => 'end',
@@ -90,7 +96,6 @@ class WeatherDataConfig
                         'type' => '`$INTEGER`',
                       ],
                       [
-                        'active' => true,
                         'example' => 40.7128,
                         'kind' => 'query',
                         'name' => 'lat',
@@ -99,7 +104,6 @@ class WeatherDataConfig
                         'type' => '`$NUMBER`',
                       ],
                       [
-                        'active' => true,
                         'example' => -74.006,
                         'kind' => 'query',
                         'name' => 'lon',
@@ -108,7 +112,6 @@ class WeatherDataConfig
                         'type' => '`$NUMBER`',
                       ],
                       [
-                        'active' => true,
                         'example' => 1704880800,
                         'kind' => 'query',
                         'name' => 'start',
@@ -136,10 +139,8 @@ class WeatherDataConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'list',
             ],
           ],
           'relations' => [
@@ -149,39 +150,24 @@ class WeatherDataConfig
         'weather' => [
           'fields' => [
             [
-              'active' => true,
               'name' => 'alerts',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 0,
             ],
             [
-              'active' => true,
               'name' => 'core',
-              'req' => false,
               'type' => '`$OBJECT`',
-              'index$' => 1,
             ],
             [
-              'active' => true,
               'name' => 'currently',
-              'req' => false,
               'type' => '`$OBJECT`',
-              'index$' => 2,
             ],
             [
-              'active' => true,
               'name' => 'daily',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 3,
             ],
             [
-              'active' => true,
               'name' => 'hourly',
-              'req' => false,
               'type' => '`$ARRAY`',
-              'index$' => 4,
             ],
           ],
           'name' => 'weather',
@@ -191,11 +177,9 @@ class WeatherDataConfig
               'name' => 'list',
               'points' => [
                 [
-                  'active' => true,
                   'args' => [
                     'query' => [
                       [
-                        'active' => true,
                         'example' => 40.7128,
                         'kind' => 'query',
                         'name' => 'lat',
@@ -204,7 +188,6 @@ class WeatherDataConfig
                         'type' => '`$NUMBER`',
                       ],
                       [
-                        'active' => true,
                         'example' => -74.006,
                         'kind' => 'query',
                         'name' => 'lon',
@@ -230,10 +213,8 @@ class WeatherDataConfig
                     'req' => '`reqdata`',
                     'res' => '`body`',
                   ],
-                  'index$' => 0,
                 ],
               ],
-              'key$' => 'list',
             ],
           ],
           'relations' => [

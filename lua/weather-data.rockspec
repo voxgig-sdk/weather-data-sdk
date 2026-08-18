@@ -23,6 +23,7 @@ build = {
   modules = {
     ["weather-data_sdk"] = "weather-data_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }
