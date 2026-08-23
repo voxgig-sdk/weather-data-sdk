@@ -252,11 +252,11 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `alerts` |  |
-| `core` |  |
-| `currently` |  |
-| `daily` |  |
-| `hourly` |  |
+| `alerts` | Historical weather alerts for the time period |
+| `core` | Core location and metadata information |
+| `currently` | Current weather conditions |
+| `daily` | Historical daily weather data |
+| `hourly` | Historical hourly weather data |
 
 Operations: List.
 
@@ -266,11 +266,11 @@ API path: `/history`
 
 | Field | Description |
 | --- | --- |
-| `alerts` |  |
-| `core` |  |
-| `currently` |  |
-| `daily` |  |
-| `hourly` |  |
+| `alerts` | Weather alerts and warnings for the location |
+| `core` | Core location and metadata information |
+| `currently` | Current weather conditions |
+| `daily` | 10-day daily weather forecast |
+| `hourly` | 48-hour hourly weather forecast |
 
 Operations: List.
 
@@ -295,11 +295,11 @@ Create an instance: `$history = $client->History();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alerts` | `array` |  |
-| `core` | `array` |  |
-| `currently` | `array` |  |
-| `daily` | `array` |  |
-| `hourly` | `array` |  |
+| `alerts` | `array` | Historical weather alerts for the time period |
+| `core` | `array` | Core location and metadata information |
+| `currently` | `array` | Current weather conditions |
+| `daily` | `array` | Historical daily weather data |
+| `hourly` | `array` | Historical hourly weather data |
 
 #### Example: List
 
@@ -323,11 +323,11 @@ Create an instance: `$weather = $client->Weather();`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alerts` | `array` |  |
-| `core` | `array` |  |
-| `currently` | `array` |  |
-| `daily` | `array` |  |
-| `hourly` | `array` |  |
+| `alerts` | `array` | Weather alerts and warnings for the location |
+| `core` | `array` | Core location and metadata information |
+| `currently` | `array` | Current weather conditions |
+| `daily` | `array` | 10-day daily weather forecast |
+| `hourly` | `array` | 48-hour hourly weather forecast |
 
 #### Example: List
 

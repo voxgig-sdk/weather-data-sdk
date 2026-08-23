@@ -249,11 +249,11 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `alerts` |  |
-| `core` |  |
-| `currently` |  |
-| `daily` |  |
-| `hourly` |  |
+| `alerts` | Historical weather alerts for the time period |
+| `core` | Core location and metadata information |
+| `currently` | Current weather conditions |
+| `daily` | Historical daily weather data |
+| `hourly` | Historical hourly weather data |
 
 Operations: List.
 
@@ -263,11 +263,11 @@ API path: `/history`
 
 | Field | Description |
 | --- | --- |
-| `alerts` |  |
-| `core` |  |
-| `currently` |  |
-| `daily` |  |
-| `hourly` |  |
+| `alerts` | Weather alerts and warnings for the location |
+| `core` | Core location and metadata information |
+| `currently` | Current weather conditions |
+| `daily` | 10-day daily weather forecast |
+| `hourly` | 48-hour hourly weather forecast |
 
 Operations: List.
 
@@ -292,11 +292,11 @@ Create an instance: `history = client.History()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alerts` | `list` |  |
-| `core` | `dict` |  |
-| `currently` | `dict` |  |
-| `daily` | `list` |  |
-| `hourly` | `list` |  |
+| `alerts` | `list` | Historical weather alerts for the time period |
+| `core` | `dict` | Core location and metadata information |
+| `currently` | `dict` | Current weather conditions |
+| `daily` | `list` | Historical daily weather data |
+| `hourly` | `list` | Historical hourly weather data |
 
 #### Example: List
 
@@ -319,11 +319,11 @@ Create an instance: `weather = client.Weather()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alerts` | `list` |  |
-| `core` | `dict` |  |
-| `currently` | `dict` |  |
-| `daily` | `list` |  |
-| `hourly` | `list` |  |
+| `alerts` | `list` | Weather alerts and warnings for the location |
+| `core` | `dict` | Core location and metadata information |
+| `currently` | `dict` | Current weather conditions |
+| `daily` | `list` | 10-day daily weather forecast |
+| `hourly` | `list` | 48-hour hourly weather forecast |
 
 #### Example: List
 

@@ -98,11 +98,11 @@ history = client.History
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alerts` | `Array` | No |  |
-| `core` | `Hash` | No |  |
-| `currently` | `Hash` | No |  |
-| `daily` | `Array` | No |  |
-| `hourly` | `Array` | No |  |
+| `alerts` | `Array` | No | Historical weather alerts for the time period |
+| `core` | `Hash` | No | Core location and metadata information |
+| `currently` | `Hash` | No | Current weather conditions |
+| `daily` | `Array` | No | Historical daily weather data |
+| `hourly` | `Array` | No | Historical hourly weather data |
 
 ### Operations
 
@@ -154,11 +154,11 @@ weather = client.Weather
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alerts` | `Array` | No |  |
-| `core` | `Hash` | No |  |
-| `currently` | `Hash` | No |  |
-| `daily` | `Array` | No |  |
-| `hourly` | `Array` | No |  |
+| `alerts` | `Array` | No | Weather alerts and warnings for the location |
+| `core` | `Hash` | No | Core location and metadata information |
+| `currently` | `Hash` | No | Current weather conditions |
+| `daily` | `Array` | No | 10-day daily weather forecast |
+| `hourly` | `Array` | No | 48-hour hourly weather forecast |
 
 ### Operations
 

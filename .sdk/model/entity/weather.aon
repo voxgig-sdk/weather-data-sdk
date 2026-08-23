@@ -8,26 +8,31 @@ main: kit: entity: weather: {
     {
       name: "alerts"
       req: false
+      short: "Weather alerts and warnings for the location"
       type: "`$ARRAY`"
     }
     {
       name: "core"
       req: false
+      short: "Core location and metadata information"
       type: "`$OBJECT`"
     }
     {
       name: "currently"
       req: false
+      short: "Current weather conditions"
       type: "`$OBJECT`"
     }
     {
       name: "daily"
       req: false
+      short: "10-day daily weather forecast"
       type: "`$ARRAY`"
     }
     {
       name: "hourly"
       req: false
+      short: "48-hour hourly weather forecast"
       type: "`$ARRAY`"
     }
   ]

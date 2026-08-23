@@ -92,11 +92,11 @@ history = client.History()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alerts` | `list` | No |  |
-| `core` | `dict` | No |  |
-| `currently` | `dict` | No |  |
-| `daily` | `list` | No |  |
-| `hourly` | `list` | No |  |
+| `alerts` | `list` | No | Historical weather alerts for the time period |
+| `core` | `dict` | No | Core location and metadata information |
+| `currently` | `dict` | No | Current weather conditions |
+| `daily` | `list` | No | Historical daily weather data |
+| `hourly` | `list` | No | Historical hourly weather data |
 
 ### Operations
 
@@ -149,11 +149,11 @@ weather = client.Weather()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alerts` | `list` | No |  |
-| `core` | `dict` | No |  |
-| `currently` | `dict` | No |  |
-| `daily` | `list` | No |  |
-| `hourly` | `list` | No |  |
+| `alerts` | `list` | No | Weather alerts and warnings for the location |
+| `core` | `dict` | No | Core location and metadata information |
+| `currently` | `dict` | No | Current weather conditions |
+| `daily` | `list` | No | 10-day daily weather forecast |
+| `hourly` | `list` | No | 48-hour hourly weather forecast |
 
 ### Operations
 

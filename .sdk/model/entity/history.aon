@@ -8,26 +8,31 @@ main: kit: entity: history: {
     {
       name: "alerts"
       req: false
+      short: "Historical weather alerts for the time period"
       type: "`$ARRAY`"
     }
     {
       name: "core"
       req: false
+      short: "Core location and metadata information"
       type: "`$OBJECT`"
     }
     {
       name: "currently"
       req: false
+      short: "Current weather conditions"
       type: "`$OBJECT`"
     }
     {
       name: "daily"
       req: false
+      short: "Historical daily weather data"
       type: "`$ARRAY`"
     }
     {
       name: "hourly"
       req: false
+      short: "Historical hourly weather data"
       type: "`$ARRAY`"
     }
   ]

@@ -129,11 +129,11 @@ const history = client.History()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alerts` | `any[]` | No |  |
-| `core` | `Record<string, any>` | No |  |
-| `currently` | `Record<string, any>` | No |  |
-| `daily` | `any[]` | No |  |
-| `hourly` | `any[]` | No |  |
+| `alerts` | `any[]` | No | Historical weather alerts for the time period |
+| `core` | `Record<string, any>` | No | Core location and metadata information |
+| `currently` | `Record<string, any>` | No | Current weather conditions |
+| `daily` | `any[]` | No | Historical daily weather data |
+| `hourly` | `any[]` | No | Historical hourly weather data |
 
 ### Operations
 
@@ -183,11 +183,11 @@ const weather = client.Weather()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alerts` | `any[]` | No |  |
-| `core` | `Record<string, any>` | No |  |
-| `currently` | `Record<string, any>` | No |  |
-| `daily` | `any[]` | No |  |
-| `hourly` | `any[]` | No |  |
+| `alerts` | `any[]` | No | Weather alerts and warnings for the location |
+| `core` | `Record<string, any>` | No | Core location and metadata information |
+| `currently` | `Record<string, any>` | No | Current weather conditions |
+| `daily` | `any[]` | No | 10-day daily weather forecast |
+| `hourly` | `any[]` | No | 48-hour hourly weather forecast |
 
 ### Operations
 

@@ -95,11 +95,11 @@ local history = client:History(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alerts` | `table` | No |  |
-| `core` | `table` | No |  |
-| `currently` | `table` | No |  |
-| `daily` | `table` | No |  |
-| `hourly` | `table` | No |  |
+| `alerts` | `table` | No | Historical weather alerts for the time period |
+| `core` | `table` | No | Core location and metadata information |
+| `currently` | `table` | No | Current weather conditions |
+| `daily` | `table` | No | Historical daily weather data |
+| `hourly` | `table` | No | Historical hourly weather data |
 
 ### Operations
 
@@ -151,11 +151,11 @@ local weather = client:Weather(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alerts` | `table` | No |  |
-| `core` | `table` | No |  |
-| `currently` | `table` | No |  |
-| `daily` | `table` | No |  |
-| `hourly` | `table` | No |  |
+| `alerts` | `table` | No | Weather alerts and warnings for the location |
+| `core` | `table` | No | Core location and metadata information |
+| `currently` | `table` | No | Current weather conditions |
+| `daily` | `table` | No | 10-day daily weather forecast |
+| `hourly` | `table` | No | 48-hour hourly weather forecast |
 
 ### Operations
 

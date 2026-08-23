@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -294,11 +294,11 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `alerts` |  |
-| `core` |  |
-| `currently` |  |
-| `daily` |  |
-| `hourly` |  |
+| `alerts` | Historical weather alerts for the time period |
+| `core` | Core location and metadata information |
+| `currently` | Current weather conditions |
+| `daily` | Historical daily weather data |
+| `hourly` | Historical hourly weather data |
 
 Operations: list.
 
@@ -308,11 +308,11 @@ API path: `/history`
 
 | Field | Description |
 | --- | --- |
-| `alerts` |  |
-| `core` |  |
-| `currently` |  |
-| `daily` |  |
-| `hourly` |  |
+| `alerts` | Weather alerts and warnings for the location |
+| `core` | Core location and metadata information |
+| `currently` | Current weather conditions |
+| `daily` | 10-day daily weather forecast |
+| `hourly` | 48-hour hourly weather forecast |
 
 Operations: list.
 
@@ -337,11 +337,11 @@ Create an instance: `const history = client.History()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alerts` | `any[]` |  |
-| `core` | `Record<string, any>` |  |
-| `currently` | `Record<string, any>` |  |
-| `daily` | `any[]` |  |
-| `hourly` | `any[]` |  |
+| `alerts` | `any[]` | Historical weather alerts for the time period |
+| `core` | `Record<string, any>` | Core location and metadata information |
+| `currently` | `Record<string, any>` | Current weather conditions |
+| `daily` | `any[]` | Historical daily weather data |
+| `hourly` | `any[]` | Historical hourly weather data |
 
 #### Example: List
 
@@ -364,11 +364,11 @@ Create an instance: `const weather = client.Weather()`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alerts` | `any[]` |  |
-| `core` | `Record<string, any>` |  |
-| `currently` | `Record<string, any>` |  |
-| `daily` | `any[]` |  |
-| `hourly` | `any[]` |  |
+| `alerts` | `any[]` | Weather alerts and warnings for the location |
+| `core` | `Record<string, any>` | Core location and metadata information |
+| `currently` | `Record<string, any>` | Current weather conditions |
+| `daily` | `any[]` | 10-day daily weather forecast |
+| `hourly` | `any[]` | 48-hour hourly weather forecast |
 
 #### Example: List
 

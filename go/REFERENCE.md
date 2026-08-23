@@ -103,11 +103,11 @@ fmt.Println(history.GetName()) // "history"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alerts` | `[]any` | No |  |
-| `core` | `map[string]any` | No |  |
-| `currently` | `map[string]any` | No |  |
-| `daily` | `[]any` | No |  |
-| `hourly` | `[]any` | No |  |
+| `alerts` | `[]any` | No | Historical weather alerts for the time period |
+| `core` | `map[string]any` | No | Core location and metadata information |
+| `currently` | `map[string]any` | No | Current weather conditions |
+| `daily` | `[]any` | No | Historical daily weather data |
+| `hourly` | `[]any` | No | Historical hourly weather data |
 
 ### Operations
 
@@ -158,11 +158,11 @@ fmt.Println(weather.GetName()) // "weather"
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alerts` | `[]any` | No |  |
-| `core` | `map[string]any` | No |  |
-| `currently` | `map[string]any` | No |  |
-| `daily` | `[]any` | No |  |
-| `hourly` | `[]any` | No |  |
+| `alerts` | `[]any` | No | Weather alerts and warnings for the location |
+| `core` | `map[string]any` | No | Core location and metadata information |
+| `currently` | `map[string]any` | No | Current weather conditions |
+| `daily` | `[]any` | No | 10-day daily weather forecast |
+| `hourly` | `[]any` | No | 48-hour hourly weather forecast |
 
 ### Operations
 

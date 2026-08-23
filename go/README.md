@@ -6,7 +6,7 @@ The Golang SDK for the WeatherData API — an entity-oriented client using stand
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.History(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -266,11 +266,11 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"alerts"` |  |
-| `"core"` |  |
-| `"currently"` |  |
-| `"daily"` |  |
-| `"hourly"` |  |
+| `"alerts"` | Historical weather alerts for the time period |
+| `"core"` | Core location and metadata information |
+| `"currently"` | Current weather conditions |
+| `"daily"` | Historical daily weather data |
+| `"hourly"` | Historical hourly weather data |
 
 Operations: List.
 
@@ -280,11 +280,11 @@ API path: `/history`
 
 | Field | Description |
 | --- | --- |
-| `"alerts"` |  |
-| `"core"` |  |
-| `"currently"` |  |
-| `"daily"` |  |
-| `"hourly"` |  |
+| `"alerts"` | Weather alerts and warnings for the location |
+| `"core"` | Core location and metadata information |
+| `"currently"` | Current weather conditions |
+| `"daily"` | 10-day daily weather forecast |
+| `"hourly"` | 48-hour hourly weather forecast |
 
 Operations: List.
 
@@ -309,11 +309,11 @@ Create an instance: `history := client.History(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alerts` | `[]any` |  |
-| `core` | `map[string]any` |  |
-| `currently` | `map[string]any` |  |
-| `daily` | `[]any` |  |
-| `hourly` | `[]any` |  |
+| `alerts` | `[]any` | Historical weather alerts for the time period |
+| `core` | `map[string]any` | Core location and metadata information |
+| `currently` | `map[string]any` | Current weather conditions |
+| `daily` | `[]any` | Historical daily weather data |
+| `hourly` | `[]any` | Historical hourly weather data |
 
 #### Example: List
 
@@ -340,11 +340,11 @@ Create an instance: `weather := client.Weather(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alerts` | `[]any` |  |
-| `core` | `map[string]any` |  |
-| `currently` | `map[string]any` |  |
-| `daily` | `[]any` |  |
-| `hourly` | `[]any` |  |
+| `alerts` | `[]any` | Weather alerts and warnings for the location |
+| `core` | `map[string]any` | Core location and metadata information |
+| `currently` | `map[string]any` | Current weather conditions |
+| `daily` | `[]any` | 10-day daily weather forecast |
+| `hourly` | `[]any` | 48-hour hourly weather forecast |
 
 #### Example: List
 

@@ -236,11 +236,11 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `alerts` |  |
-| `core` |  |
-| `currently` |  |
-| `daily` |  |
-| `hourly` |  |
+| `alerts` | Historical weather alerts for the time period |
+| `core` | Core location and metadata information |
+| `currently` | Current weather conditions |
+| `daily` | Historical daily weather data |
+| `hourly` | Historical hourly weather data |
 
 Operations: List.
 
@@ -250,11 +250,11 @@ API path: `/history`
 
 | Field | Description |
 | --- | --- |
-| `alerts` |  |
-| `core` |  |
-| `currently` |  |
-| `daily` |  |
-| `hourly` |  |
+| `alerts` | Weather alerts and warnings for the location |
+| `core` | Core location and metadata information |
+| `currently` | Current weather conditions |
+| `daily` | 10-day daily weather forecast |
+| `hourly` | 48-hour hourly weather forecast |
 
 Operations: List.
 
@@ -279,11 +279,11 @@ Create an instance: `local history = client:History(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alerts` | `table` |  |
-| `core` | `table` |  |
-| `currently` | `table` |  |
-| `daily` | `table` |  |
-| `hourly` | `table` |  |
+| `alerts` | `table` | Historical weather alerts for the time period |
+| `core` | `table` | Core location and metadata information |
+| `currently` | `table` | Current weather conditions |
+| `daily` | `table` | Historical daily weather data |
+| `hourly` | `table` | Historical hourly weather data |
 
 #### Example: List
 
@@ -306,11 +306,11 @@ Create an instance: `local weather = client:Weather(nil)`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `alerts` | `table` |  |
-| `core` | `table` |  |
-| `currently` | `table` |  |
-| `daily` | `table` |  |
-| `hourly` | `table` |  |
+| `alerts` | `table` | Weather alerts and warnings for the location |
+| `core` | `table` | Core location and metadata information |
+| `currently` | `table` | Current weather conditions |
+| `daily` | `table` | 10-day daily weather forecast |
+| `hourly` | `table` | 48-hour hourly weather forecast |
 
 #### Example: List
 

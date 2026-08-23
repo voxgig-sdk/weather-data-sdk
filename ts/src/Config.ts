@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'WeatherData',
+        slug: "weather-data",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -63,22 +74,27 @@ class Config {
       "fields": [
         {
           "name": "alerts",
+          "short": "Historical weather alerts for the time period",
           "type": "`$ARRAY`"
         },
         {
           "name": "core",
+          "short": "Core location and metadata information",
           "type": "`$OBJECT`"
         },
         {
           "name": "currently",
+          "short": "Current weather conditions",
           "type": "`$OBJECT`"
         },
         {
           "name": "daily",
+          "short": "Historical daily weather data",
           "type": "`$ARRAY`"
         },
         {
           "name": "hourly",
+          "short": "Historical hourly weather data",
           "type": "`$ARRAY`"
         }
       ],
@@ -155,22 +171,27 @@ class Config {
       "fields": [
         {
           "name": "alerts",
+          "short": "Weather alerts and warnings for the location",
           "type": "`$ARRAY`"
         },
         {
           "name": "core",
+          "short": "Core location and metadata information",
           "type": "`$OBJECT`"
         },
         {
           "name": "currently",
+          "short": "Current weather conditions",
           "type": "`$OBJECT`"
         },
         {
           "name": "daily",
+          "short": "10-day daily weather forecast",
           "type": "`$ARRAY`"
         },
         {
           "name": "hourly",
+          "short": "48-hour hourly weather forecast",
           "type": "`$ARRAY`"
         }
       ],

@@ -7,6 +7,9 @@ local function make_config()
   return {
     main = {
       name = "WeatherData",
+      slug = "weather-data",
+      version = "0.0.1",
+      target = "lua",
     },
     feature = {
       ["test"] = {
@@ -33,22 +36,27 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "alerts",
+            ["short"] = "Historical weather alerts for the time period",
             ["type"] = "`$ARRAY`",
           },
           {
             ["name"] = "core",
+            ["short"] = "Core location and metadata information",
             ["type"] = "`$OBJECT`",
           },
           {
             ["name"] = "currently",
+            ["short"] = "Current weather conditions",
             ["type"] = "`$OBJECT`",
           },
           {
             ["name"] = "daily",
+            ["short"] = "Historical daily weather data",
             ["type"] = "`$ARRAY`",
           },
           {
             ["name"] = "hourly",
+            ["short"] = "Historical hourly weather data",
             ["type"] = "`$ARRAY`",
           },
         },
@@ -125,22 +133,27 @@ local function make_config()
         ["fields"] = {
           {
             ["name"] = "alerts",
+            ["short"] = "Weather alerts and warnings for the location",
             ["type"] = "`$ARRAY`",
           },
           {
             ["name"] = "core",
+            ["short"] = "Core location and metadata information",
             ["type"] = "`$OBJECT`",
           },
           {
             ["name"] = "currently",
+            ["short"] = "Current weather conditions",
             ["type"] = "`$OBJECT`",
           },
           {
             ["name"] = "daily",
+            ["short"] = "10-day daily weather forecast",
             ["type"] = "`$ARRAY`",
           },
           {
             ["name"] = "hourly",
+            ["short"] = "48-hour hourly weather forecast",
             ["type"] = "`$ARRAY`",
           },
         },

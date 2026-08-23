@@ -97,11 +97,11 @@ $history = $client->History();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alerts` | `array` | No |  |
-| `core` | `array` | No |  |
-| `currently` | `array` | No |  |
-| `daily` | `array` | No |  |
-| `hourly` | `array` | No |  |
+| `alerts` | `array` | No | Historical weather alerts for the time period |
+| `core` | `array` | No | Core location and metadata information |
+| `currently` | `array` | No | Current weather conditions |
+| `daily` | `array` | No | Historical daily weather data |
+| `hourly` | `array` | No | Historical hourly weather data |
 
 ### Operations
 
@@ -153,11 +153,11 @@ $weather = $client->Weather();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `alerts` | `array` | No |  |
-| `core` | `array` | No |  |
-| `currently` | `array` | No |  |
-| `daily` | `array` | No |  |
-| `hourly` | `array` | No |  |
+| `alerts` | `array` | No | Weather alerts and warnings for the location |
+| `core` | `array` | No | Core location and metadata information |
+| `currently` | `array` | No | Current weather conditions |
+| `daily` | `array` | No | 10-day daily weather forecast |
+| `hourly` | `array` | No | 48-hour hourly weather forecast |
 
 ### Operations
 
