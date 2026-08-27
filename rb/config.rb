@@ -28,6 +28,7 @@ module WeatherDataConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
