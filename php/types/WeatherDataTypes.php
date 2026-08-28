@@ -25,11 +25,10 @@ class History
 /** Request payload for History#list. */
 class HistoryListMatch
 {
-    public ?array $alerts = null;
-    public ?array $core = null;
-    public ?array $currently = null;
-    public ?array $daily = null;
-    public ?array $hourly = null;
+    public int $end;
+    public float $lat;
+    public float $lon;
+    public int $start;
 }
 
 /** Weather entity data model. */
@@ -45,10 +44,7 @@ class Weather
 /** Request payload for Weather#list. */
 class WeatherListMatch
 {
-    public ?array $alerts = null;
-    public ?array $core = null;
-    public ?array $currently = null;
-    public ?array $daily = null;
-    public ?array $hourly = null;
+    public float $lat;
+    public float $lon;
 }
 

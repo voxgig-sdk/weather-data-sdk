@@ -23,11 +23,10 @@ type History struct {
 
 // HistoryListMatch is the typed request payload for History.ListTyped.
 type HistoryListMatch struct {
-	Alerts *[]any `json:"alerts,omitempty"`
-	Core *map[string]any `json:"core,omitempty"`
-	Currently *map[string]any `json:"currently,omitempty"`
-	Daily *[]any `json:"daily,omitempty"`
-	Hourly *[]any `json:"hourly,omitempty"`
+	End int `json:"end"`
+	Lat float64 `json:"lat"`
+	Lon float64 `json:"lon"`
+	Start int `json:"start"`
 }
 
 // Weather is the typed data model for the weather entity.
@@ -41,11 +40,8 @@ type Weather struct {
 
 // WeatherListMatch is the typed request payload for Weather.ListTyped.
 type WeatherListMatch struct {
-	Alerts *[]any `json:"alerts,omitempty"`
-	Core *map[string]any `json:"core,omitempty"`
-	Currently *map[string]any `json:"currently,omitempty"`
-	Daily *[]any `json:"daily,omitempty"`
-	Hourly *[]any `json:"hourly,omitempty"`
+	Lat float64 `json:"lat"`
+	Lon float64 `json:"lon"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

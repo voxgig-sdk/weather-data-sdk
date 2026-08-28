@@ -14,11 +14,10 @@ export interface History {
 }
 
 export interface HistoryListMatch {
-  alerts?: any[]
-  core?: Record<string, any>
-  currently?: Record<string, any>
-  daily?: any[]
-  hourly?: any[]
+  end: number
+  lat: number
+  lon: number
+  start: number
 }
 
 export interface Weather {
@@ -30,10 +29,7 @@ export interface Weather {
 }
 
 export interface WeatherListMatch {
-  alerts?: any[]
-  core?: Record<string, any>
-  currently?: Record<string, any>
-  daily?: any[]
-  hourly?: any[]
+  lat: number
+  lon: number
 }
 

@@ -24,12 +24,11 @@ class History(TypedDict, total=False):
     hourly: list
 
 
-class HistoryListMatch(TypedDict, total=False):
-    alerts: list
-    core: dict
-    currently: dict
-    daily: list
-    hourly: list
+class HistoryListMatch(TypedDict):
+    end: int
+    lat: float
+    lon: float
+    start: int
 
 
 class Weather(TypedDict, total=False):
@@ -40,9 +39,6 @@ class Weather(TypedDict, total=False):
     hourly: list
 
 
-class WeatherListMatch(TypedDict, total=False):
-    alerts: list
-    core: dict
-    currently: dict
-    daily: list
-    hourly: list
+class WeatherListMatch(TypedDict):
+    lat: float
+    lon: float

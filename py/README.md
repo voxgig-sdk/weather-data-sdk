@@ -46,7 +46,7 @@ error — iterate it directly.
 
 ```python
 try:
-    historys = client.History().list()
+    historys = client.History().list({"end": 1, "lat": 1, "lon": 1, "start": 1})
     for history in historys:
         print(history)
 except Exception as err:
@@ -301,7 +301,7 @@ Create an instance: `history = client.History()`
 #### Example: List
 
 ```python
-historys = client.History().list()
+historys = client.History().list({"end": 1, "lat": 1, "lon": 1, "start": 1})
 ```
 
 
@@ -328,8 +328,31 @@ Create an instance: `weather = client.Weather()`
 #### Example: List
 
 ```python
-weathers = client.Weather().list()
+weathers = client.Weather().list({"lat": 1, "lon": 1})
 ```
+
+## Features
+
+This SDK ships 1 optional features. Each is **inactive until you
+switch it on**, so an SDK you have not configured behaves exactly as if none of
+them existed — no retries, no cache, no logging, no measurable overhead.
+
+Activate a feature by name in the client options, alongside the options shown
+above:
+
+| Feature | What it does |
+|---|---|
+| [`test`](#test) | In-memory mock transport for testing without a live server |
+
+### test
+
+In-memory mock transport for testing without a live server.
+
+| Option | Default |
+|---|---|
+| `active` | `false` |
+
+Set `feature.test.active` to enable it, then override any of the options above.
 
 
 ## Advanced

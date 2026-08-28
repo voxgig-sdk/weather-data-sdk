@@ -14,11 +14,10 @@
 ---@field hourly? table
 
 ---@class HistoryListMatch
----@field alerts? table
----@field core? table
----@field currently? table
----@field daily? table
----@field hourly? table
+---@field end number
+---@field lat number
+---@field lon number
+---@field start number
 
 ---@class Weather
 ---@field alerts? table
@@ -28,11 +27,8 @@
 ---@field hourly? table
 
 ---@class WeatherListMatch
----@field alerts? table
----@field core? table
----@field currently? table
----@field daily? table
----@field hourly? table
+---@field lat number
+---@field lon number
 
 local M = {}
 

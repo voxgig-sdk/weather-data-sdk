@@ -35,26 +35,22 @@ History = Struct.new(
 
 # Request payload for History#list.
 #
-# @!attribute [rw] alerts
-#   @return [Array, nil]
+# @!attribute [rw] end
+#   @return [Integer]
 #
-# @!attribute [rw] core
-#   @return [Hash, nil]
+# @!attribute [rw] lat
+#   @return [Float]
 #
-# @!attribute [rw] currently
-#   @return [Hash, nil]
+# @!attribute [rw] lon
+#   @return [Float]
 #
-# @!attribute [rw] daily
-#   @return [Array, nil]
-#
-# @!attribute [rw] hourly
-#   @return [Array, nil]
+# @!attribute [rw] start
+#   @return [Integer]
 HistoryListMatch = Struct.new(
-  :alerts,
-  :core,
-  :currently,
-  :daily,
-  :hourly,
+  :end,
+  :lat,
+  :lon,
+  :start,
   keyword_init: true
 )
 
@@ -85,26 +81,14 @@ Weather = Struct.new(
 
 # Request payload for Weather#list.
 #
-# @!attribute [rw] alerts
-#   @return [Array, nil]
+# @!attribute [rw] lat
+#   @return [Float]
 #
-# @!attribute [rw] core
-#   @return [Hash, nil]
-#
-# @!attribute [rw] currently
-#   @return [Hash, nil]
-#
-# @!attribute [rw] daily
-#   @return [Array, nil]
-#
-# @!attribute [rw] hourly
-#   @return [Array, nil]
+# @!attribute [rw] lon
+#   @return [Float]
 WeatherListMatch = Struct.new(
-  :alerts,
-  :core,
-  :currently,
-  :daily,
-  :hourly,
+  :lat,
+  :lon,
   keyword_init: true
 )
 
