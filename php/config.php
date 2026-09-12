@@ -133,8 +133,10 @@ class WeatherDataConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/history',
-                  'parts' => [
-                    'history',
+                  'segments' => [
+                    [
+                      'lit' => 'history',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -147,6 +149,9 @@ class WeatherDataConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'history',
                   ],
                 ],
               ],
@@ -214,8 +219,10 @@ class WeatherDataConfig
                   'kind' => 'http',
                   'method' => 'GET',
                   'orig' => '/weather',
-                  'parts' => [
-                    'weather',
+                  'segments' => [
+                    [
+                      'lit' => 'weather',
+                    ],
                   ],
                   'select' => [
                     'exist' => [
@@ -226,6 +233,9 @@ class WeatherDataConfig
                   'transform' => [
                     'req' => '`reqdata`',
                     'res' => '`body`',
+                  ],
+                  'parts' => [
+                    'weather',
                   ],
                 ],
               ],

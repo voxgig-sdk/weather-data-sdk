@@ -107,8 +107,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/history",
-                ["parts"] = {
-                  "history",
+                ["segments"] = {
+                  {
+                    ["lit"] = "history",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -121,6 +123,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "history",
                 },
               },
             },
@@ -188,8 +193,10 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/weather",
-                ["parts"] = {
-                  "weather",
+                ["segments"] = {
+                  {
+                    ["lit"] = "weather",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -200,6 +207,9 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body`",
+                },
+                ["parts"] = {
+                  "weather",
                 },
               },
             },

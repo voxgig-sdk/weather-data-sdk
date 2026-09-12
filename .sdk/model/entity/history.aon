@@ -81,8 +81,10 @@ main: kit: entity: history: {
           }
           method: "GET"
           orig: "/history"
-          parts: [
-            "history"
+          segments: [
+            {
+              lit: "history"
+            }
           ]
           select: {
             exist: [

@@ -119,8 +119,10 @@ module WeatherDataConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/history",
-                  "parts" => [
-                    "history",
+                  "segments" => [
+                    {
+                      "lit" => "history",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -134,6 +136,9 @@ module WeatherDataConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "history",
+                  ],
                 },
               ],
             },
@@ -200,8 +205,10 @@ module WeatherDataConfig
                   "kind" => "http",
                   "method" => "GET",
                   "orig" => "/weather",
-                  "parts" => [
-                    "weather",
+                  "segments" => [
+                    {
+                      "lit" => "weather",
+                    },
                   ],
                   "select" => {
                     "exist" => [
@@ -213,6 +220,9 @@ module WeatherDataConfig
                     "req" => "`reqdata`",
                     "res" => "`body`",
                   },
+                  "parts" => [
+                    "weather",
+                  ],
                 },
               ],
             },
