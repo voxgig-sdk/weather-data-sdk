@@ -105,7 +105,7 @@ local results, err = client:History():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/weather-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-data-sdk/releases) |
+| TypeScript | `@voxgig-sdk/weather-data-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-data-sdk/releases) |
 | Python | `voxgig-sdk-weather-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-data-sdk/releases) |
 | PHP | `voxgig-sdk/weather-data` | publish pending — [install from git tag](https://github.com/voxgig-sdk/weather-data-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/weather-data-sdk/go` | `go get github.com/voxgig-sdk/weather-data-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:History():list()
 ### TypeScript
 
 ```ts
-import { WeatherDataSDK } from '@voxgig-sdk/weather-data'
+import { WeatherDataSDK } from '@voxgig-sdk/weather-data-sdk'
 
 const client = new WeatherDataSDK({
   apikey: process.env.WEATHER_DATA_APIKEY,

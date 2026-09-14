@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { WeatherDataSDK } from '@voxgig-sdk/weather-data'
+import { WeatherDataSDK } from '@voxgig-sdk/weather-data-sdk'
 
 const client = new WeatherDataSDK({
   apikey: process.env.WEATHER_DATA_APIKEY,
@@ -459,7 +459,7 @@ weather-data/
 Import the SDK from the package root:
 
 ```ts
-import { WeatherDataSDK } from '@voxgig-sdk/weather-data'
+import { WeatherDataSDK } from '@voxgig-sdk/weather-data-sdk'
 ```
 
 ### Entity state
