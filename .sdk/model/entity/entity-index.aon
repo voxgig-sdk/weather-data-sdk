@@ -1,4 +1,4 @@
 # Entity Models
 
-@"history.aon"
-@"weather.aon"
+@"./history.aon"
+@"./weather.aon"

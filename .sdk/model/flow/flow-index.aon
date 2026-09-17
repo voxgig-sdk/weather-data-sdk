@@ -1,4 +1,4 @@
 # Flows
 
-@"BasicHistoryFlow.aon"
-@"BasicWeatherFlow.aon"
+@"./BasicHistoryFlow.aon"
+@"./BasicWeatherFlow.aon"

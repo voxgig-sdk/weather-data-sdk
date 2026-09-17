@@ -81,6 +81,7 @@ func MakeConfig() map[string]any {
 			"base": "https://api.weatherxu.com/v1",
 			"auth": map[string]any{
 				"prefix": "",
+				"name": "X-API-KEY",
 			},
 			"headers": map[string]any{
 				"content-type": "application/json",

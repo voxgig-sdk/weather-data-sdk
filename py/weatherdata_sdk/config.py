@@ -106,6 +106,7 @@ def make_config():
             "base": "https://api.weatherxu.com/v1",
             "auth": {
                 "prefix": "",
+                "name": "X-API-KEY",
             },
             "headers": {
         "content-type": "application/json",
